@@ -6,4 +6,4 @@ const username = "Sido";
 //cd .. can return you to the london-pt-fe-030320
 //then git pull git@github.com:CodersInHoods/london-pt-fe-030320.git master
 //Always go back to first file (london-pt-fe-030320) when 'git pull' new 'repo'
-//then 'npm install' or 'npm i'
+//then 'npm install' or 'npm i' on exercise file

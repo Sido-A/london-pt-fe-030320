@@ -13,7 +13,9 @@ const targetMatchesUserValue = target === userValue;
 
 const passwordMatchesConfirmation = password === passwordConfirmation;
 
-if (password !== "JSisCool888"){
+//correcting the answer
+let passwordMessage;
+if (password !== passwordConfirmation) {
     passwordMessage = "Oops, your password and confirmation do not match!";
 }
 
