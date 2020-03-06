@@ -53,7 +53,7 @@ function logSum(num1, num2) {
 
 }
 
-logSum(5, 1
+logSum(5, 1);
 global.console = {
 	log: jest.fn(),
 	info: jest.fn(),
