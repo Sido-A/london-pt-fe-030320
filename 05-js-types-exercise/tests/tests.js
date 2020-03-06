@@ -41,8 +41,6 @@ describe("numbers", () => {
     expect(averageAge).toBe((age1 + age2 + age3) / 3);
   });
 });
-
-
 describe("booleans", () => {
   test("loggedIn is a boolean", () => {
     expect(typeof loggedIn).toBe("boolean");
@@ -50,8 +48,6 @@ describe("booleans", () => {
   test("loggedIn is true", () => {
     expect(loggedIn).toBe(true);
   });
-
-  
   test("adminUser is a boolean", () => {
     expect(typeof adminUser).toBe("boolean");
   });
