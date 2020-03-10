@@ -60,6 +60,7 @@ function myAnimalWithError() {
  * alert(read about it) with the message "My favorite cat is YOUR_CITY"
  *
  */
+/*<<<<<<< HEAD*/
 
  function myCity() {
      alert("My favorite city is London");
@@ -67,3 +68,5 @@ function myAnimalWithError() {
  }
 
  myCity();
+/*=======
+>>>>>>> 88a68ad6e0c2c65a0e369253eeb292911925adb7*/

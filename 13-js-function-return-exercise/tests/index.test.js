@@ -118,8 +118,12 @@ describe("randomNumber", () => {
 		const number = randomNumber();
 
 		expect(number === Math.floor(number)).toBeTruthy();
+/*<<<<<<< HEAD*/
 	}); 
-});
+/*=======*/
+	});
+/*>>>>>>> 88a68ad6e0c2c65a0e369253eeb292911925adb7*/
+
 
 //Exercise 5
 describe("getOppositeNumber", () => {
