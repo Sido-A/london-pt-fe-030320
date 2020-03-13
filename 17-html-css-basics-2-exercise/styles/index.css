@@ -3,7 +3,16 @@
 }
 
 body {
-    font-size: 14px;
+    font-family: 'Roboto', sans-serif;
+    font-size: 62.5%;
+    width: 100%;
+
+    
+}
+
+.overflow {
+        overflow: hidden;
+
 }
 
 /* Custom styles */
@@ -71,3 +80,360 @@ body {
 }
 
 /* ======================== */
+
+header, section, footer, div, a, ul, li, img, p,h1,h2,h3{
+    margin: 0;
+    padding: 0;
+}
+
+ul{
+    list-style: none;
+}
+
+
+.header-content-wrapper {
+    background: url(../images/wave-1817646_1920.png) no-repeat;
+    background-position: right;
+    background-size: 90% 100%;
+    background-color: #000;    
+}
+
+
+.header-inner {
+    width: 100%;
+    max-width: 90rem;
+    margin: 0 auto;
+    min-height: 80vh;
+
+}
+
+.menu {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.menu-item {
+    color: #fff;
+    margin: 3rem 1rem;
+}
+
+.menu-item a {
+    position: relative;
+    color: #fff;
+    display: block;
+    padding: .5rem;
+    text-decoration: none;
+}
+
+.menu-item a::after {
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  content: '';
+  width: 100%;
+  height: 2px;
+  background: green;
+  transform: scale(0, 1);
+  transform-origin: left top;
+  transition: transform .7s;
+}
+
+.menu-item a:hover::after {
+  transform: scale(1, 1);
+}
+
+
+.text-white {
+    color: #fff;
+    letter-spacing: 3px;
+}
+
+.main-small-title{
+    font-size: 1.4rem;
+}
+
+.main-big-title{
+    font-size: 3rem;
+    padding-top: 0.5rem;
+}
+
+.header-main-content-wrapper {
+    margin: 15% 6%;
+}
+
+/***********MAIN*************/
+
+
+
+
+.top-inner {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    min-height: 95vh;
+}
+
+.html5-wrapper, .css3-wrapper {
+    display: inline-flex;
+    margin-top: 100px;
+    margin-bottom: 50px;
+}
+
+/*https://taneppa.net/flexbox_row_reverse/  how to reverse img and text*/
+.css3-wrapper:nth-child(even){
+    flex-direction: row-reverse;
+}
+
+
+/*https://cotodama.co/css_bg-img-color/   how to add filter*/
+.img-dark {
+    position: relative;
+
+}
+
+.img-dark::after{
+    content: '';
+    background-color: rgba(0,0,0,.7);
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+}
+
+
+.rainbow-text-on-img {
+    position: absolute;
+    font-size: 8rem;
+    top: 35%;
+    left: 14%;
+    font-weight: bold;
+    color: #fff;
+    z-index: 100000;
+
+}
+
+.css-title-on-img {
+    position: absolute;
+    top: 35%;
+    left:25%;
+}
+
+.why-block {
+    width: 100%;
+    margin: 0 auto;
+    text-align: center;
+    margin-top: 5rem;
+
+}
+
+.top-title {
+    font-size: 3rem;
+    font-weight: 900;
+}
+
+.html5-title {
+    color: orange;
+
+}
+
+.css3-title{
+    color: yellowgreen;
+}
+
+.details-block {
+    width: 100%;
+    max-width: 68%;
+    margin: 0 auto;
+}
+
+.details {
+    
+    font-size: 1.4rem;
+    color: #534d4d;
+    margin-top: 5rem;
+    text-align: left;
+}
+
+
+/*<!---------------Middle--------------->*/
+.middle-content-wrapper {
+    margin-top: 5rem;
+    background-color: #ebebeb;
+    min-height: 80vh;
+}
+
+.middle-inner {
+    width: 100%;
+    max-width: 1150px;
+    margin: 0 auto;
+    padding-top: 1rem;
+
+}
+
+/* Start apply style to Middle & Bottom*/
+.same-content-title {
+    text-align: center;    
+    margin-top: 4rem;
+}
+
+.first-title {
+    font-size: 2.5rem;
+
+}
+
+.sub-title {
+    font-size: 2em;
+    padding-top: 1rem;
+}
+/*End apply style to Middle & Bottom*/
+
+
+.cards-inner {
+    display: flex;
+    margin: 0 auto;
+    margin-top: 4rem;
+    margin-bottom: 1rem;
+    width: calc(100% - 300px);
+}
+
+.card-child{
+    background-color: #fff;
+    box-shadow: 15px 10px 15px  #bdb9b9;
+    width: 100%;
+    max-width: 250px;
+    margin: 0 auto;
+}
+
+.card-child-inner{
+    width: 100%;
+    max-width: 230px;
+    margin: 0 auto;
+    margin-top: 10px;
+    margin-bottom: 30px;
+
+}
+
+.card-img img {
+    width: 230px;
+}
+
+.card-title{
+    padding-top: 1rem;
+
+}
+
+.card-text {
+    color: #adadad;
+    font-size: 2em;
+    padding-top: 5px;
+
+}
+
+/*<!---------------Bottom--------------->*/
+
+.bottom-inner {
+    width: 100%;
+    max-width: 90rem;
+    margin: 0 auto;
+}
+
+.bottom-imgs{
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 3rem;
+    
+
+}
+.big-img img{
+    margin: 0 27px 0 150px;
+    max-width: 18vw;
+
+}
+
+
+
+
+.small-img {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0 auto;
+}
+
+
+.small-img img {
+    position: relative;
+    margin: 0 20px 20px 0;
+    max-width: 18vw;
+}
+
+.small-img img:nth-child(2n) {
+    margin: 0 0 0 0;
+
+}
+
+.small-img-dark {
+    position: relative;
+}
+
+   
+
+.small-img-dark:first-child::after {
+    content: '';
+    background-color: rgba(0,0,0,.4);
+    position: absolute;
+    left: 0;
+    right: 18px;
+    top: 0;
+    bottom: 20px;
+}
+
+ 
+
+
+/*<!---------------Footer--------------->*/
+
+
+.footer-content-wrapper {
+    background-color: #000;
+    color: #fff;
+    padding-bottom: 50px;
+}
+
+.footer-inner {
+    width: 100%;
+    max-width: 1150px;
+    margin: 0 auto;
+    margin-top: 70px;
+    padding-top: 80px;
+}
+
+/*Start flex*/
+.flex {
+    display: flex;
+    justify-content: space-between;
+}
+/*End flex*/
+
+.social-media>p {
+    font-size: 1rem;
+    font-weight: 900;
+}
+
+.social-media-icons {
+    margin-top: 30px;
+}
+
+.social-media-icons>a {
+    margin-right: 15px;
+}
+
+.blah-blah {
+    color: #cfcfcf;
+    font-size: 1.2rem;
+    width: 457px;    
+}
+
+.blah-blah>p {
+    padding-top: .8rem;
+}
