@@ -3,6 +3,17 @@
 }
 
 body {
-            color: #B0665D;
-            font-family: 'Caudex', serif;
+    font-family: "Caudex";
+    text-align: center; 
         }
+
+figcaption {
+    color: ;
+    font-family: "Caudex";
+    text-align: center;
+}
+
+h1 {
+    font-family: "Caudex";
+    text-align: center;
+}

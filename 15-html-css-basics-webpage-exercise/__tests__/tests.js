@@ -24,7 +24,7 @@ describe("h1", () => {
 	test("element font family is Caudex", () => {
 		const h1 = htmlNode.querySelector("h1");
 		
-		expect(getComputedStyle(h1).fontFamily).toEqual('"Caudex"');
+		expect(getComputedStyle(h1).fontFamily).toEqual('Caudex');
 	});
 
 	test("text aligned to the center", () => {
@@ -42,7 +42,7 @@ describe("h3", () => {
 	test("element font family is Caudex", () => {
 		const h3 = htmlNode.querySelector("h3");
 		
-		expect(getComputedStyle(h3).fontFamily).toEqual('"Caudex"');
+		expect(getComputedStyle(h3).fontFamily).toEqual('Caudex');
 	});
 
 	test("text aligned to the center", () => {
@@ -68,7 +68,7 @@ describe("Image", () => {
 	test("element font family is Caudex", () => {
 		const figcaption = htmlNode.querySelector("figcaption");
 		
-		expect(getComputedStyle(figcaption).fontFamily).toEqual('"Caudex"');
+		expect(getComputedStyle(figcaption).fontFamily).toEqual('Caudex');
 	});
 
 	test("element color is #B0665D", () => {
