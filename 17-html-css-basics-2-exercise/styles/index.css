@@ -115,6 +115,7 @@ ul{
 .menu-item {
     color: #fff;
     margin: 3rem 1rem;
+    font-size: 1rem;
 }
 
 .menu-item a {
@@ -187,9 +188,10 @@ ul{
 
 /*https://cotodama.co/css_bg-img-color/   how to add filter*/
 .img-dark {
-    position: relative;
+    position: relative;   
 
 }
+
 
 .img-dark::after{
     content: '';
@@ -446,11 +448,56 @@ ul{
 
 @media screen and (max-width: 1024px) {
 
+    
+.top-inner {
+    width: 100%;
+    max-width: 900px;
+    margin: 0 auto;
+    min-height: 95vh;
 }
 
-@media screen and (min-width: 319px) and (max-width: 768px) {
+.rainbow-text-on-img {
+    position: absolute;
+    font-size: 5rem;
+    top: 35%;
+    left: 14%;
 
-    .header-content-wrapper {
+}
+
+.css-title-on-img {
+    position: absolute;
+    top: 35%;
+    left:25%;
+}
+
+.img-dark img {
+    width: 100%;
+    height: 100%;
+}
+
+
+.middle-content-wrapper {
+    min-height: 80vh;
+}
+.cards-inner {
+    width: 100%;
+}
+
+
+/*Start flex*/
+.flex {
+    justify-content: space-around;
+}
+/*End flex*/
+
+
+
+}
+
+@media screen and (max-width: 768px) {
+
+    
+.header-content-wrapper {
     background-size: 100% 100%;
     object-fit: fill;
     
@@ -463,10 +510,12 @@ ul{
 }
 
 .menu:after {
-    font-family: 'FontAwesome';
+    font-family: 'Font Awesome 5 Free';
     color: #fff;
     content: '\f0c9';
-    font-size: 5rem;
+    font-size: 4rem;
+    font-weight: 900;
+    margin: 2.5rem;
 
 }
 
@@ -477,6 +526,177 @@ ul{
 
 
 .main-small-title{
+    font-size: 1.5rem;
+}
+
+.main-big-title{
+    font-size: 3rem;
+}
+
+/***********max-width 768px MAIN*************/
+
+
+.html5-wrapper, .css3-wrapper {
+    display: block;
+}
+
+.img-dark {
+    width: 60%;
+    margin: 0 auto;
+}
+
+.rainbow-text-on-img {
+    position: absolute;
+    font-size: 6rem;
+    top: 40%;
+    left: 15%;
+
+}
+
+.css-title-on-img {
+    top: 40%;
+    left:25%;
+}
+
+.details-block {
+    max-width: 85%;
+}
+
+
+.details {
+    margin-top: 2rem;
+    font-size: 2.3em;
+}
+/*<!---------------max-width 768px Middle--------------->*/
+
+
+/* Start apply style to Middle & Bottom*/
+.first-title {
+    font-size: 2.5rem;
+
+}
+
+.sub-title {
+    font-size: 2.2em;
+}
+/*End apply style to Middle & Bottom*/
+
+
+.cards-inner {
+    display: block;
+    padding-bottom: 4rem;
+
+}
+
+.card-child{
+    width: 100%;
+    max-width: 500px;
+    margin-bottom: 2rem;
+}
+
+.card-child-inner{
+    max-width: 440px;
+    margin: 0 auto;
+    padding: 1rem 0 3rem 0;  
+
+}
+
+.card-img img {
+    width: 100%;
+}
+
+.card-title{
+    padding-top: 1.5rem;
+    font-size: 2rem;
+
+}
+.card-text {
+    font-size: 2.5em;
+    padding-top: 1rem;
+
+}
+/*<!---------------max-width 768px Bottom--------------->*/
+
+.bottom-inner {
+    width: 100%;
+    max-width: 50%;
+    margin: 0 auto;
+}
+
+.bottom-imgs{
+    display: block;
+    margin-top: 3rem;
+    
+
+}
+.big-img img{
+    margin: 0 ;
+    max-width: 100%;
+
+}
+
+.small-img {
+    margin-top: 1rem;
+    
+}
+
+
+.small-img img {    
+    max-width: 100%;
+}
+
+.small-img-dark:first-child::after {
+    content: '';
+    background-color: rgba(0,0,0,.4);
+    position: absolute;
+    right: 0;
+}
+
+
+
+/*<!---------------max-width 768px Footer--------------->*/
+
+.footer-inner {
+    width: 100%;
+    max-width: 80%;
+    margin: 0 auto;
+    margin-top: 70px;
+    padding-top: 80px;
+}
+
+/*Start flex*/
+.flex {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+}
+/*End flex*/
+
+.social-media>p {
+    font-size: 1.5rem;
+}
+
+.social-media-icons {
+    margin-top: 10px;
+}
+
+.blah-blah {
+    font-size: 1.2rem;
+    max-width: 100%;  
+    margin-top: 1rem;  
+}
+
+.blah-blah>p {
+    padding-top: .8rem;
+}
+}
+
+
+
+@media screen and (max-width: 480px){
+
+
+.main-small-title{
     font-size: 1rem;
 }
 
@@ -484,22 +704,13 @@ ul{
     font-size: 2rem;
 }
 
-/***********MAIN*************/
+/***********max-width 480px MAIN*************/
 
-.header-main-content-wrapper {
-    margin: 25% 6%;
+
+.img-dark {
+    width: 90%;
+    margin: 0 auto;
 }
-
-.html5-wrapper, .css3-wrapper {
-    display: block;
-}
-
-.code-picture {
-    min-width: 90vw;
-    max-width: 100vw;
-}
-
-
 
 .rainbow-text-on-img {
     position: absolute;
@@ -514,9 +725,6 @@ ul{
     left:25%;
 }
 
-.details-block {
-    max-width: 85%;
-}
 
 .top-title {
     font-size: 2rem;
@@ -532,14 +740,6 @@ ul{
     margin-top: 5rem;
     background-color: #ebebeb;
     min-height: 80vh;
-}
-
-.middle-inner {
-    width: 100%;
-    max-width: 1150px;
-    margin: 0 auto;
-    padding-top: 1rem;
-
 }
 
 /* Start apply style to Middle & Bottom*/
@@ -568,18 +768,29 @@ ul{
 
 }
 
+.card-child{
+    width: 100%;
+    max-width: 310px;
+}
+
 .card-child-inner{
-    padding: 1rem 0 1rem 0;
+    max-width: 280px;
+    padding: 1rem 0 1rem 0;  
 
 }
+
 .card-title{
     padding-top: 1rem;
+    font-size: 1.5rem;
 
 }
 .card-text {
     font-size: 2em;
 
 }
+
+
+
 
 
 /*<!---------------max-width 768px Bottom--------------->*/
@@ -657,11 +868,4 @@ ul{
 .blah-blah>p {
     padding-top: .8rem;
 }
-
-
-
-
-
-
-
 }
