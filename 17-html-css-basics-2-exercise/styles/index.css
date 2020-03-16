@@ -262,7 +262,7 @@ ul{
 .middle-content-wrapper {
     margin-top: 5rem;
     background-color: #ebebeb;
-    min-height: 80vh;
+    min-height: 60vh;
 }
 
 .middle-inner {
@@ -343,18 +343,17 @@ ul{
 .bottom-imgs{
     display: flex;
     justify-content: flex-end;
-    margin-top: 3rem;
-    
+    margin-top: 3rem;   
 
 }
-.big-img img{
+
+.big-img {
     margin: 0 27px 0 150px;
+}
+.big-img img{
     max-width: 18vw;
 
 }
-
-
-
 
 .small-img {
     display: flex;
@@ -362,33 +361,45 @@ ul{
     margin: 0 auto;
 }
 
+.small-img div {
+    margin: 0 20px 20px 0;
+}
+
 
 .small-img img {
     position: relative;
-    margin: 0 20px 20px 0;
     max-width: 18vw;
 }
 
-.small-img img:nth-child(2n) {
-    margin: 0 0 0 0;
-
-}
-
-.small-img-dark {
+/*↓↓How to add bg-color and words↓↓*/
+/*https://blog.raizzenet.com/mouse-hover-caption-effects-in-css/#i-sample1*/
+.img-hover-dark {
     position: relative;
 }
 
-
-
-.small-img-dark:first-child::after {
-    content: '';
-    background-color: rgba(0,0,0,.4);
-    position: absolute;
-    left: 0;
-    right: 18px;
-    top: 0;
-    bottom: 20px;
+.caption {
+	font-size: 4rem;
+	text-align: center;
+	padding-top: 3.5rem;
+	color: #fff;
 }
+.mask {
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	top: 0;
+	left: 0;
+	opacity:  0;	/* Same as display: none; */
+	background-color:rgba(0,0,0,0.4);	/* Mask opacity */
+	-webkit-transition:	all 0.2s ease;
+	transition: all 0.2s ease;
+}
+.img-hover-dark:hover .mask {
+	opacity: 1;	/* Apply mask */
+}
+/*↑↑How to add bg-color and words↑↑*/
+
+
 
 
 
@@ -445,10 +456,11 @@ ul{
 }
 
 
-
+/*Media @media screen and (max-width: 1024px) */
 @media screen and (max-width: 1024px) {
 
-    
+
+/*<!---------------max-width 1024px Main--------------->*/
 .top-inner {
     width: 100%;
     max-width: 900px;
@@ -475,6 +487,7 @@ ul{
     height: 100%;
 }
 
+/*<!---------------max-width 1024px Middle--------------->*/
 
 .middle-content-wrapper {
     min-height: 80vh;
@@ -483,20 +496,21 @@ ul{
     width: 100%;
 }
 
+/*<!---------------max-width 1024px Footer--------------->*/
 
 /*Start flex*/
 .flex {
     justify-content: space-around;
 }
 /*End flex*/
-
-
-
 }
 
+
+/*@media screen and (max-width: 768px) */
 @media screen and (max-width: 768px) {
 
-    
+/*<!---------------max-width 768px Head--------------->*/
+
 .header-content-wrapper {
     background-size: 100% 100%;
     object-fit: fill;
@@ -533,7 +547,7 @@ ul{
     font-size: 3rem;
 }
 
-/***********max-width 768px MAIN*************/
+/*<!---------------max-width 768px Main--------------->*/
 
 
 .html5-wrapper, .css3-wrapper {
@@ -692,7 +706,7 @@ ul{
 }
 
 
-
+/*@media screen and (max-width: 480px) */
 @media screen and (max-width: 480px){
 
 
@@ -734,7 +748,7 @@ ul{
     margin-top: 2rem;
     font-size: 2.3em;
 }
-/*<!---------------max-width Middle--------------->*/
+/*<!---------------max-width 480px Middle--------------->*/
 
 .middle-content-wrapper {
     margin-top: 5rem;
@@ -793,7 +807,7 @@ ul{
 
 
 
-/*<!---------------max-width 768px Bottom--------------->*/
+/*<!---------------max-width 480px Bottom--------------->*/
 
 .bottom-inner {
     width: 100%;
@@ -833,7 +847,7 @@ ul{
 
 
 
-/*<!---------------max-width 768px Footer--------------->*/
+/*<!---------------max-width 480px Footer--------------->*/
 
 .footer-inner {
     width: 100%;
