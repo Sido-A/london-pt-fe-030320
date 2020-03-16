@@ -262,7 +262,7 @@ ul{
 .middle-content-wrapper {
     margin-top: 5rem;
     background-color: #ebebeb;
-    min-height: 60vh;
+    min-height: 80vh;
 }
 
 .middle-inner {
@@ -385,7 +385,8 @@ ul{
 }
 .mask {
 	width: 100%;
-	height: 100%;
+    height: 100%;
+    cursor: pointer;
 	position: absolute;
 	top: 0;
 	left: 0;
@@ -490,7 +491,7 @@ ul{
 /*<!---------------max-width 1024px Middle--------------->*/
 
 .middle-content-wrapper {
-    min-height: 80vh;
+    min-height: 60vh;
 }
 .cards-inner {
     width: 100%;
