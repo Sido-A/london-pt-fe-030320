@@ -125,6 +125,6 @@ describe("moreThanSevenIndex", () => {
 	});
 
 	test("moreThanSevenIndex return first number that is more than 7", () => {
-		expect(moreThanSevenIndex).toEqual(7);
+		expect(moreThanSevenIndex).toEqual(8);
 	});
 });
