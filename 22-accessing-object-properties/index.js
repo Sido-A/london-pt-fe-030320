@@ -94,6 +94,7 @@ const user = {
  * PS: use console.log() to see the result
  */
 
+/// ↓↓ めちゃ時間かかった。。。
 function getParentFullName(parentType) {
 
 	if (parentType === 'mother') {
@@ -109,6 +110,7 @@ function getParentFullName(parentType) {
 
 console.log(getParentFullName('mother'));
 console.log(getParentFullName('father'));
+/// ↑↑ めちゃ時間かかった。。。
 
 /**
  * Exercise 7
