@@ -55,6 +55,9 @@ function iterateUp(array) {
   }
 }
 
+
+console.log(iterateUp());
+
 function iterateDown(array) {
   for (let index = array.length - 1; index >= 0; index--) {
     console.log(array[index]);
@@ -79,7 +82,8 @@ iterateUp(matchData.away.players);
 iterateDown(matchData.home.players);
 iterateDown(matchData.away.players);
 
+/*
 doTimes(15);
 doTimes(150);
 
-randomNumberOfTimes();
+randomNumberOfTimes();*/
