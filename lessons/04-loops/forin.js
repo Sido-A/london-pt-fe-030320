@@ -8,11 +8,13 @@ const matchData = {
     name: "Arsenal",
     score: 0,
     players: ["Özil", "Pépé", "Xhaka", "Luiz"]
+
   }
 };
 
 for (let key in matchData) {
   console.log(key);
+  
   for (let teamKey in matchData[key]) {
     console.log(teamKey, matchData[key][teamKey]);
   }
