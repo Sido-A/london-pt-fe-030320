@@ -77,14 +77,15 @@ function rulerConstructor() {
  */
 
 
-function partyPadding(guests) { 
-    let guestList = guests.length;
+function partyPadding(guests) { // guest passing "Sido"
+    let guestList = guests.length; // assign guests.length to guestList
+    // console.log(guestList);
+   // console.log(guests.length);
 
-    while (guestList < 5) {
-        guests[guestList] = "Neighbour";
-        guestList++;
+    while (guestList < 5) { // while guestList is less than 5, 
+        guests[guestList] = "Neighbour"; // guests[guestList] will add Neighbour
+        guestList++; // looping until it gets to 5th time.
     }
-
  }
 
  console.log(partyPadding("Sido"));
