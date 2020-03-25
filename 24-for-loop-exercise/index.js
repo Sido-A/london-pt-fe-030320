@@ -38,12 +38,13 @@ const numbers = [2, 123, 13, 1, 6, 84, 23, 12, 45]; // DON'T TOUCH THIS LINE :)
 // const numbers = [2, 123, 13, 1, 6, 84, 23, 12]; // DON'T TOUCH THIS LINE :)
 
  function getElementIndex(inputNumber) {
+     let getIndex = numbers[0]
      for (let i = 0; i < numbers.length; i++) {
          // console.log(numbers[i]); output numbers.length value         
          
          if (inputNumber == numbers[i]) {
             //  console.log(numbers[i]);
-             return numbers.indexOf(inputNumber);
+            return i;
              // out put the return when "else" is not declare...
          };
      }     
@@ -51,7 +52,7 @@ const numbers = [2, 123, 13, 1, 6, 84, 23, 12, 45]; // DON'T TOUCH THIS LINE :)
      //If the value was found in 'if' then the function will stop without finishing the loop
  }
 
- console.log(getElementIndex()); 
+ console.log(getElementIndex(12)); 
 // ========================
 
 /*
@@ -105,12 +106,13 @@ const forLowestNumber = [5, 234, 96, 34, -34, 0, 23]; // DON'T TOUCH THIS LINE :
  *  create function {lowestNumber} which will return the lowest integer
  * from {forLowestNumber}
  */
-// http://cly7796.net/wp/javascript/find-maximum-and-minimum-values-in-array/
 
  function lowestNumber() {
      let lowestInteger = forLowestNumber[0]; // 
      for (let i = 0; i < forLowestNumber.length; i++) {
-          lowestInteger = Math.min(lowestInteger, forLowestNumber[i]);
+         if(lowestInteger > forLowestNumber[i]){
+             lowestInteger = forLowestNumber[i];
+         }
         }
         return lowestInteger;
     }
