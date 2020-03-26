@@ -115,8 +115,8 @@ console.log(moreThanFour);
 /**
  * Exercise 11
  *
- * Create variable "moreThanSevenIndex" returns first number
- * "numbers" that are more than 7
+ * Create variable "moreThanSevenIndex" returns index of the first 
+ * number form "numbers" that are more than 7
  */
 
  const moreThanSevenIndex = numbers.find(number => number > 7);
