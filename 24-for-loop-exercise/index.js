@@ -38,9 +38,8 @@ const numbers = [2, 123, 13, 1, 6, 84, 23, 12, 45]; // DON'T TOUCH THIS LINE :)
 // const numbers = [2, 123, 13, 1, 6, 84, 23, 12]; // DON'T TOUCH THIS LINE :)
 
  function getElementIndex(inputNumber) {
-     let getIndex = numbers[0]
      for (let i = 0; i < numbers.length; i++) {
-         // console.log(numbers[i]); output numbers.length value         
+         // console.log(numbers[i]); output numbers.length value        
          
          if (inputNumber == numbers[i]) {
             //  console.log(numbers[i]);
@@ -52,7 +51,7 @@ const numbers = [2, 123, 13, 1, 6, 84, 23, 12, 45]; // DON'T TOUCH THIS LINE :)
      //If the value was found in 'if' then the function will stop without finishing the loop
  }
 
- console.log(getElementIndex(12)); 
+ console.log(getElementIndex(4)); 
 // ========================
 
 /*
