@@ -19,7 +19,14 @@
  * Call this function and run "node index.js" in a terminal
  * to see the result
  */
+const chalk = require("chalk");
 
+const renderBlueText = () => {
+    console.log(chalk.blue("The text will be blue"));
+
+}
+
+console.log(renderBlueText());
 /**
  * Exercise 3
  *
@@ -29,6 +36,13 @@
  * to see the result
  */
 
+ const inversedColourText = (takeString) => {
+     console.log(chalk.inverse(takeString));
+
+ }
+
+ console.log(inversedColourText("Inverted coloured text"));
+
 /**
  * Exercise 4
  *
@@ -36,3 +50,9 @@
  * and style each by adding red background colour and setting
  * font colour to white.
  */
+
+ const styledText = (takeArrayOfStrings) => {
+     console.log(chalk.bgRed.white(takeArrayOfStrings));
+ }
+
+ console.log(styledText(["Red bg and White text"]));
