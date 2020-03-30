@@ -84,19 +84,23 @@ let result = 0;
 const userInputTotal = () => {
      switch (selectedSymbol) {
           case '+':
-               result = number1 + number2;
+               result = eval(`${number1}${selectedSymbol}${number2}`);
+               // result = number1 + number2;
                break;
 
           case '-':
-               result = number1 - number2;
+               result = eval(`${number1}${selectedSymbol}${number2}`);
+               // result = number1 - number2;
                break;
 
           case '*':
-               result = number1 * number2;
+               result = eval(`${number1}${selectedSymbol}${number2}`);
+               // result = number1 * number2;
                break;
 
           case '/':
-               result = number1 / number2;
+               result = eval(`${number1}${selectedSymbol}${number2}`);
+               // result = number1 / number2;
                break;
 
      }
