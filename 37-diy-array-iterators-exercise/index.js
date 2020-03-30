@@ -11,9 +11,10 @@
 
 const forEach = (array, callback) => {
   for (const el of array) {
-    callback(el, array.indexOf(el));
+  callback(el, array.indexOf(el));
   }
 };
+
 
 /**
  * Exercise #2
