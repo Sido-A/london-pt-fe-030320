@@ -22,7 +22,7 @@ const itemOfArray = () => {
   }, 3000);
 }
 
-console.log("Call back function will execute after this log, even tho the code is written above this log");
+console.log("Call back function will execute after this log, even tho the code is written  above this log");
 
 // forEach([1, 2, 3], itemOfArray);
 
