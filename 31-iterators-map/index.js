@@ -10,23 +10,23 @@
  * a new array.
  */
 
- const convertToPositive = (takeNumbersArray) => {
-     let newArray = [];
-     takeNumbersArray.map(takeNumbersArray => {
-         if (takeNumbersArray < 0) {
-            takeNumbersArray = takeNumbersArray * -1;
-            // console.log(takeNumbersArray); log lower than 0 num -1,-2
-            newArray.push(takeNumbersArray);
-            
+const convertToPositive = (takeNumbersArray) => {
+    let newArray = [];
+    takeNumbersArray.map(takeNumbersArrayValue => {
+        if (takeNumbersArrayValue < 0) {
+            takeNumbersArrayValue = takeNumbersArrayValue * -1;
+            // console.log(takeNumbersArrayValue); log lower than 0 num -1,-2
+            newArray.push(takeNumbersArrayValue);
 
-         } else if(takeNumbersArray > 0){
-            //  console.log(takeNumbersArray); log higher than 0 num 3,4
-             newArray.push(takeNumbersArray);
-            }
-         })
-     return newArray;
 
+        } else if (takeNumbersArrayValue > 0) {
+            //  console.log(takeNumbersArrayValue); log higher than 0 num 3,4
+            newArray.push(takeNumbersArrayValue);
         }
+    })
+    return newArray;
+
+}
 
 //  console.log(convertToPositive([-1,-2,3,4]));
 /**
@@ -48,8 +48,8 @@
 
  const getAllNames = (takeNames) => {
      let takeAllNamesNewArray = [];
-     takeNames.map(takeNames => {
-             takeAllNamesNewArray.push(takeNames["name"]);             
+     takeNames.map(takeNamesValue => {
+             takeAllNamesNewArray.push(takeNamesValue["name"]);             
          })
      return takeAllNamesNewArray;
  }
@@ -65,9 +65,9 @@ console.log(getAllNames([{name: 'Alex', age: 26},{name: 'John', age: 25}]));
 
  const greetAll = (takesNamesArray) => {
     let newNamesArray = [];
-     takesNamesArray.map(takesNamesArray => {
-        //  console.log(takesNamesArray) // output ["Sido","Lucie","FL"]
-         newNamesArray.push(`Hi, ${takesNamesArray}!`)
+     takesNamesArray.map(takesNamesArrayValue => {
+        //  console.log(takesNamesArrayValue) // output ["Sido","Lucie","FL"]
+         newNamesArray.push(`Hi, ${takesNamesArrayValue}!`)
      })
      return newNamesArray;
  }
@@ -85,13 +85,13 @@ console.log(getAllNames([{name: 'Alex', age: 26},{name: 'John', age: 25}]));
 
 const multiplyAllNumbers = (takeArray) => {
     let numbersMultipliedArray = [];
-    takeArray.map(takeArray=> {
-        if(typeof takeArray == 'number'){
-            takeArray = takeArray * 5;
-            numbersMultipliedArray.push(takeArray);            
+    takeArray.map(takeArrayValue=> {
+        if(typeof takeArrayValue == 'number'){
+            takeArrayValue = takeArrayValue * 5;
+            numbersMultipliedArray.push(takeArrayValue);            
             // console.log(numbersMultipliedArray); // output multiplied numbers
         }else{
-            numbersMultipliedArray.push(takeArray);
+            numbersMultipliedArray.push(takeArrayValue);
         }
     })
     return numbersMultipliedArray;

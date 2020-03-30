@@ -6,9 +6,9 @@
  */
 const noStrings = (takeArrays) => {
     let newNoStringArray = [];
-    takeArrays.filter(takeArrays => {
-        if (typeof takeArrays !== 'string') {
-            newNoStringArray.push(takeArrays);       
+    takeArrays.filter(takeArraysValue => {
+        if (typeof takeArraysValue !== 'string') {
+            newNoStringArray.push(takeArraysValue);
         }
     })
     return newNoStringArray;
@@ -25,9 +25,9 @@ const noStrings = (takeArrays) => {
 
  const justStrings = (takeArrays) => {
      let newJustStringArray = [];
-     takeArrays.filter(takeArrays => {
-         if (typeof takeArrays === 'string') {
-             newJustStringArray.push(takeArrays);             
+     takeArrays.filter(takeArraysValue => {
+         if (typeof takeArraysValue === 'string') {
+             newJustStringArray.push(takeArraysValue);             
          }
      })
      return newJustStringArray;
@@ -45,9 +45,9 @@ const noStrings = (takeArrays) => {
 
  const justStringsLongerThan5 = (takeArrays) => {
      let newJustStringsLongerThanFive = [];
-     takeArrays.filter(takeArrays => {
-         if (typeof takeArrays === 'string' && takeArrays.length > 5) {
-             newJustStringsLongerThanFive.push(takeArrays);             
+     takeArrays.filter(takeArraysValue => {
+         if (typeof takeArraysValue === 'string' && takeArraysValue.length > 5) {
+             newJustStringsLongerThanFive.push(takeArraysValue);             
          }
      })
      return newJustStringsLongerThanFive;
@@ -65,9 +65,9 @@ const noStrings = (takeArrays) => {
 
  const numbersMoreThan13 = (takeArrays) => {
      let newNumberMoreThanThirteen = [];
-     takeArrays.filter(takeArrays => {
-         if (takeArrays > 13) {
-             newNumberMoreThanThirteen.push(takeArrays);             
+     takeArrays.filter(takeArraysValue => {
+         if (takeArraysValue > 13) {
+             newNumberMoreThanThirteen.push(takeArraysValue);             
          }
      })
      return newNumberMoreThanThirteen;
@@ -84,9 +84,9 @@ const noStrings = (takeArrays) => {
 
  const objectsOnly = (takeArrays) => {
      let newObjectOnlyArray = [];
-     takeArrays.filter(takeArrays => {
-         if (typeof takeArrays === 'object') {
-             newObjectOnlyArray.push(takeArrays);             
+     takeArrays.filter(takeArraysValue => {
+         if (typeof takeArraysValue === 'object') {
+             newObjectOnlyArray.push(takeArraysValue);             
          }
         })
         return newObjectOnlyArray;
@@ -104,10 +104,10 @@ const noStrings = (takeArrays) => {
  const truthyOnly = (takeArrays) => {
      let newTruthyOnlyArray = [];
     //  console.log(takeArrays); // output ["kitten",{},0]
-     takeArrays.filter(takeArrays => {
-         if (takeArrays || takeArrays === 0 ) {
-             newTruthyOnlyArray.push(takeArrays);  
-            //  console.log(takeArrays);  log only [0]
+     takeArrays.filter(takeArraysValue => {
+         if (takeArraysValue || takeArraysValue === 0 ) {
+             newTruthyOnlyArray.push(takeArraysValue);  
+            //  console.log(takeArraysValue);  log only [0]
             // console.log(newTruthyOnlyArray); log only [0]           
          }
      })
