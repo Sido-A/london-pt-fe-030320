@@ -77,27 +77,53 @@ let number1 = readlineSync.questionFloat("Input your first number: ", {limitMess
  *
  * show the result to the user
  */
+
+
 let result = 0;
 
 const userInputTotal = () => {
+     switch (selectedSymbol) {
+          case '+':
+               result = number1 + number2;
+               break;
 
-     if (selectedSymbol == '+') {
-          result = number1 + number2;
-          
-     } 
-     else if(selectedSymbol == '-'){
-          result = number1 - number2;
+          case '-':
+               result = number1 - number2;
+               break;
 
-     }
-     else if (selectedSymbol == "*") {
-          result = number1 * number2;
-     }
-     else {
-          result = number1 / number2;
+          case '*':
+               result = number1 * number2;
+               break;
+
+          case '/':
+               result = number1 / number2;
+               break;
+
      }
 }
 
 userInputTotal();
+
+// let result = 0;
+
+// const userInputTotal = () => {
+
+//      if (selectedSymbol == '+') {
+//           result = number1 + number2;
+          
+//      } 
+//      else if(selectedSymbol == '-'){
+//           result = number1 - number2;
+
+//      }
+//      else if (selectedSymbol == "*") {
+//           result = number1 * number2;
+//      }
+//      else {
+//           result = number1 / number2;
+//      }
+// }
+
 
 
 
