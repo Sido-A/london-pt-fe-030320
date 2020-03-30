@@ -10,11 +10,21 @@
  */
 
 const forEach = (array, callback) => {
-  for (const el of array) {
-  callback(el, array.indexOf(el));
+  for (const item of array) {
+  callback(item, array.indexOf(item));
   }
 };
 
+
+const itemOfArray = () => {
+  setTimeout(() => {
+      console.log("Hello");
+  }, 3000);
+}
+
+console.log("Call back function will execute after this log, even tho the code is written above this log");
+
+// forEach([1, 2, 3], itemOfArray);
 
 /**
  * Exercise #2
@@ -31,12 +41,14 @@ const forEach = (array, callback) => {
  */
 
 const map = (array, callback) => {
-  const newArr = [];
-  for (const el of array) {
-    newArr.push(callback(el, array.indexOf(el)));
+  const newArrayOfMap = [];
+  for (const item of array) {
+    newArrayOfMap.push(callback(item, array.indexOf(item)));
   }
-  return newArr;
+  return newArrayOfMap;
 };
+
+map([10, 2, 3], itemOfArray);
 
 /**
  * Exercise #3
