@@ -134,22 +134,43 @@ const chooseTrip = () => {
 const chooseTopMenu = () => {
 	const topMenu = ["Books", "Movies", "Next trip"],
 	pickCategoryIndex = readlineSync.keyInSelect(topMenu, "Pick a category?", {cancel: "Exit"});
+	console.log(pickCategoryIndex);
 
-	if (pickCategoryIndex +1 == 1) {
-	chooseBook();
-	
-  } else if (pickCategoryIndex +1 == 2) {
-	chooseMovie();
-	
-  } else if (pickCategoryIndex +1 == 3) {
-	chooseTrip();
-	
-  } else if(pickCategoryIndex == -1) {
-	  console.log(selectedItems);
+	switch (pickCategoryIndex) {
+    case 0:
+      chooseBook();
+      break;
 
+    case 1:
+      chooseMovie();
+      break;
+
+    case 2:
+      chooseTrip();
+      break;
+
+    case -1:
+      console.log(selectedItems);;
+      break;
   }
 }
 	chooseTopMenu();
+
+	
+
+// 	if (pickCategoryIndex +1 == 1) {
+// 	chooseBook();
+	
+//   } else if (pickCategoryIndex +1 == 2) {
+// 	chooseMovie();
+	
+//   } else if (pickCategoryIndex +1 == 3) {
+// 	chooseTrip();
+	
+//   } else if(pickCategoryIndex == -1) {
+// 	  console.log(selectedItems);
+
+//   }
 
 	// const friends = ["Rachel", "Ross", "Chandler", "Monica", "Joey", "Phoebe"];
 
