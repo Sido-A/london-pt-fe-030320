@@ -10,7 +10,7 @@
  */
 
 const forEach = (array, callback) => {
-  for (const item of array) {
+  for (const item of array) { // the code will execute times array length
   callback(item, array.indexOf(item));
   }
 };
@@ -19,12 +19,12 @@ const forEach = (array, callback) => {
 const itemOfArray = () => {
   setTimeout(() => {
       console.log("Hello");
-  }, 3000);
+  }, 3000); // log out in 3000ms(3sec)
 }
 
-console.log("Call back function will execute after this log, even tho the code is written  above this log");
+console.log("Call back function will execute after this log, even tho the code is written above this log");
 
-// forEach([1, 2, 3], itemOfArray);
+// forEach([1, 2, 3], itemOfArray); // itemOfArray is placed to callback 
 
 /**
  * Exercise #2
@@ -65,13 +65,13 @@ map([10, 2, 3], itemOfArray);
  */
 
 const filter = (array, callback) => {
-  const newArr = [];
-  for (const el of array) {
-    if (callback(el, array.indexOf(el))) {
-      newArr.push(el);
+  const newArrayOfFilter = [];
+  for (const item of array) {
+    if (callback(item, array.indexOf(item))) {
+      newArrayOfFilter.push(item);
     }
   }
-  return newArr;
+  return newArrayOfFilter;
 };
 
 /**
@@ -90,9 +90,9 @@ const filter = (array, callback) => {
 
 const find = (array, callback) => {
   let match;
-  for (const el of array) {
-    if (callback(el, array.indexOf(el))) {
-      match = el;
+  for (const item of array) {
+    if (callback(item, array.indexOf(item))) {
+      match = item;
       break;
     }
   }
@@ -115,9 +115,9 @@ const find = (array, callback) => {
 
 const findIndex = (array, callback) => {
   let index;
-  for (const el of array) {
-    if (callback(el, array.indexOf(el))) {
-      index = array.indexOf(el);
+  for (const item of array) {
+    if (callback(item, array.indexOf(item))) {
+      index = array.indexOf(item);
       break;
     }
   }
@@ -140,8 +140,8 @@ const findIndex = (array, callback) => {
 
 const every = (array, callback) => {
   let all = true;
-  for (const el of array) {
-    if (!callback(el, array.indexOf(el))) {
+  for (const item of array) {
+    if (!callback(item, array.indexOf(item))) {
       all = false;
       break;
     }
@@ -166,8 +166,8 @@ const every = (array, callback) => {
 
 const some = (array, callback) => {
   let any = false;
-  for (const el of array) {
-    if (callback(el, array.indexOf(el))) {
+  for (const item of array) {
+    if (callback(item, array.indexOf(item))) {
       any = true;
       break;
     }
@@ -200,8 +200,8 @@ const some = (array, callback) => {
 const reduce = (array, callback, initialValue = 0) => {
   let acca = initialValue;
 
-  for (const el of array) {
-    acca = callback(acca, el, array.indexOf(el));
+  for (const item of array) {
+    acca = callback(acca, item, array.indexOf(item));
   }
 
   return acca;
