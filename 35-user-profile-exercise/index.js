@@ -40,7 +40,7 @@ console.log(`Hello ${user.firstName} ${user.lastName}!`);
  * ask user for a email and save response to {user.email}
  */
 
- user.email = readlineSync.question("What is your email address : ");
+user.email = readlineSync.questionEMail("What is your email address : ");
 
 
 /**
