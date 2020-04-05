@@ -57,13 +57,16 @@
  * text, has the array of classes and append it to the body
  */
 
-//  const addElementWithMultipleClasses = (tagName, getText, arrayOfClasses) => {
-//      const addElement = document.createElement(tagName);
-//      addElement.innerText = getText;
-//      addElement.className = [arrayOfClasses];
-//      document.body.appendChild(addElement);
+ const addElementWithMultipleClasses = (tagName, getText, arrayOfClasses) => {
+     const addElement = document.createElement(tagName);
+     addElement.innerText = getText;    
+     for (let i = 0; i < arrayOfClasses.length; i++) {
+         const element = arrayOfClasses[i];         
+         addElement.className += `${element} `;
+         document.body.appendChild(addElement);  
+     }
+ }
 
-//  }
 
 /**
  * Exercise 5
@@ -124,12 +127,16 @@ const prependLiToList = (getText, className) => {
  * Add the li into the list at the position passed to this function.
  *
  */
-// const pushToSelectedPosition = (getText, className, index) => {
-//     const liNewAdd = document.createElementNS('li');
-//     liNewAdd.innerText = getText;
-//     liNewAdd.className = className;
+const pushToSelectedPosition = (getText, className, index) => {
+    const getElement = document.querySelector('ul');     
 
-// }
+    const liAddNew = document.createElement('li');
+    liAddNew.innerText = getText;
+    liAddNew.className = className;
+
+    const newElementPosition = getElement.querySelector(`li:nth-of-type(${index + 1})`);
+    getElement.insertBefore(liAddNew, newElementPosition)
+}
 
 /**
  * Exercise 8
@@ -143,9 +150,10 @@ const prependLiToList = (getText, className) => {
  */
 
 
- const deleteSelectedElements = (parentSelector, childSelector) => {
-   const parent = document.querySelector(parentSelector);
-   const child = document.querySelectorAll(childSelector);
-
-   parent.remove(child);
+ const deleteSelectedElements = (parentSelector, elementSelectors) => {
+   const selectedParent = document.querySelector(parentSelector);
+   const selectedElements = document.querySelectorAll(elementSelectors);
+   selectedElements.forEach((selectedElement) => {
+     selectedParent.removeChild(selectedElement);
+   });
  };
