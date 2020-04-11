@@ -51,8 +51,6 @@ const setStep = () => {
          // giving the Step[input number] to Current Step is: #        currentStepIs.innerText = step;  
         currentStepIs.value = step;  
         currentStepIs.innerText = currentStepIs.value;
-            // console.log(typeof currentStepIs.value);
-            // console.log(typeof currentStepIs.innerText);      
 
         // reset the Step[input] value to 1
         stepInput.value = 1;        
@@ -68,11 +66,16 @@ setStep();
  *
  * NOTE: remember to use your {action} function
  */
-const decrement = document.querySelector("#decrement")
-     decrement.addEventListener("click", () =>{
+
+ const decrement = () => {
+     const decrementButton = document.querySelector("#decrement")
+     decrementButton.addEventListener("click", () => {
          action("-");
-        //  console.log(counter);         
-     })     
+         //  console.log(counter);         
+     })
+ }
+
+decrement();
  
 
 /**
@@ -83,11 +86,17 @@ const decrement = document.querySelector("#decrement")
  *
  * NOTE: remember to use your {action} function
  */
-const increment = document.querySelector("#increment")
-    increment.addEventListener("click", () => {
-        action("+");
-        // console.log(counter);
-    })
+
+ const increment = ()=> {
+     const incrementButton = document.querySelector("#increment")
+     incrementButton.addEventListener("click", () => {
+         action("+");
+         // console.log(counter);
+     })
+ }
+
+increment();
+
 
 /**
  * Exercise 5
@@ -97,14 +106,24 @@ const increment = document.querySelector("#increment")
  *
  * NOTE: ".counter_value" should represent current state of counter
  */
-    const autoDecrementButton = document.querySelector("#auto_decrement")
-    autoDecrementButton.addEventListener("click", () => {
-        setInterval(() => {
-            action("-");
-            // console.log(counter);            
-            // console.log(counterValue);   
-        }, 1000);
-    })
+
+ let intervalId = 0;
+
+const autoDecrement = ()=>{
+     const autoDecrementButton = document.getElementById("auto_decrement")
+     autoDecrementButton.addEventListener("click", () => {
+         clearInterval(intervalId);
+         intervalId = setInterval(() => {
+             action("-");
+             // console.log(counter);            
+             // console.log(counterValue);
+
+             
+         }, 1000);
+     })
+ }
+clearInterval(intervalId)
+autoDecrement();
 
 /**
  * Exercise 6
@@ -114,15 +133,19 @@ const increment = document.querySelector("#increment")
  *
  * NOTE: ".counter_value" should represent current state of counter
  */
-
-    const autoIncrementButton = document.querySelector("#auto_increment")
+const autoIncrement = ()=> {
+    const autoIncrementButton = document.getElementById("auto_increment")
     autoIncrementButton.addEventListener("click", () => {
-        setInterval(() => {
+        clearInterval(intervalId);
+         intervalId = setInterval(() => {
             action("+");
             // console.log(counter);            
-            // console.log(counterValue);               
+            // console.log(counterValue);   
         }, 1000);
     })
+}
+
+autoIncrement();
 
 
 /**
@@ -131,9 +154,12 @@ const increment = document.querySelector("#increment")
  * when the user clicks on "#stop_auto",
  * the auto counter should stop
  */
+const stopAuto = ()=> {
+    const stopAutoButton = document.querySelector("#stop_auto");
+    stopAutoButton.addEventListener("click", () => {
+        clearInterval(intervalId)
+    }) 
+}
 
-     const stopAutoButton = document.querySelector("#stop_auto");
-     stopAutoButton.addEventListener("click", () =>{
-         console.log(autoDecrementButton);         
-         console.log("hi");    
-     })     
+stopAuto();
+         
