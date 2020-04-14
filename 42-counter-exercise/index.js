@@ -122,7 +122,6 @@ const autoDecrement = ()=>{
          }, 1000);
      })
  }
-clearInterval(intervalId)
 autoDecrement();
 
 /**
