@@ -3,8 +3,6 @@ const timersContainerEl = document.querySelector(".timers");
 
 // USE THIS VARIABLE TO COUNT TIMERS
 let timersCount = 0;
-let intervalId = null;
-
 /**
  * Exercise 1
  *
@@ -36,73 +34,46 @@ const createTimerEl = (number) => {
     <button class="reset">Reset</button>
     <button class="stop">Stop</button>
   </div>`
+
+  let time = 0;
+  const intervalId = setInterval(() => {
+    time += 1;
+    // get time / 100 = 230 = 2s
+    let sec = Math.floor(time / 100);
+    // get remainder 230 % 100 = 30ms
+    let millisec = time % 100;
+    const h3 = divTimer.querySelector("h3");
+    h3.innerHTML = `${sec} <span>${millisec}</span>`;
+  }, 100);
+
+
+  const resetButton = divTimer.querySelector(".reset");
+  const stopButton = divTimer.querySelector(".stop");
+  const removeButton = divTimer.querySelector(".remove");
+  // reset timer to 0 when clicking "Reset"
+  resetButton.addEventListener("click", () => {
+    time = 0;
+  });
+  // remove timer container when click "X"
+  removeButton.addEventListener("click", () => {
+    divTimer.remove();
+  });
+  stopButton.addEventListener("click", () => {
+    clearInterval(intervalId);
+  });
   return divTimer; // return .timers container(parent of .timer)
 };
 
 //Add timer's click times
 addCounterEl.addEventListener("click", () => {
-  if (timersCount < 5) {
+  const timerContainer = document.querySelectorAll(".timer");
+  if (timerContainer.length < 5) {
+    // when the 5th timer get erased 6th timer will be added, max amount will stay as 5
     timersCount += 1;
     // if click time is less than 5 create element
-    const timer = createTimerEl(timersCount)
+    const timer = createTimerEl(timersCount);
     timersContainerEl.appendChild(timer); // append createTimerEl(timersCount) on .timers
-    startTimer(timersCount);
-    // resetTimer();
-    //   stopTimer(timersCount); 
-
-  } 
+    // startTimer(timersCount);// start timer immediately when create new timer container
+  }
 });
 
-const startTimer = (number) => {
-    const uniqueTimer = document.querySelector(`.timer_${number}`)     
-    let time = 0;     
-    const h3 = uniqueTimer.querySelector("h3");  
-    intervalId = setInterval(() => {
-      time += 1;
-      // get time / 100 = 230 = 2s
-      const sec = Math.floor(time / 100);
-      // get remainder 230 % 100 = 30ms
-      const millisec = time % 100;  
-      h3.innerHTML = `${sec} <span>${millisec}</span>`
-    }, 10)          
-}
-
-const resetTimer = () => {
-    const timerResets = document.querySelectorAll(".reset");
-    timerResets.forEach(timerReset => {
-        timerReset.addEventListener("click", () => {
-            console.log("hi");
-        })        
-    });
-}
-
-
-// const stopTimer = (number) => {
-//     const uniqueTimer = document.querySelector(`.timer_${number}`);
-//     console.log(uniqueTimer);
-    
-//     const timerStop = uniqueTimer.querySelector(".stop");
-//     console.log(timerStop);
-    
-
-//         timerStop.addEventListener("click", () => {
-//             console.log(timerStop);
-            
-//                 console.log("HI");
-                
-                
-            
-            
-//             clearInterval(intervalId);
-//         })
-//     }
- 
-
-
-// document.getElementsByClassName("stop").addEventListener("click",clearInterval(intervalId));
-
-//     const removeButton = document.getElementsByClassName("remove");
-//     removeButton.addEventListener("click", () => {
-//         // const removeTimer = document.getElementsByClassName("timer");
-//         console.log("HI");
-//     })
