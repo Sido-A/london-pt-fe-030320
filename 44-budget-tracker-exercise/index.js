@@ -1,207 +1,66 @@
 localStorage.products = JSON.stringify(products);
 const productsRender = JSON.parse(localStorage.products);
+const quantityObj = {};
 
-// const eachItem = () => {
-//     const productsDiv = document.getElementById("products");
-//     productsRender.forEach((item,i) => {
-//         console.log(item, i);
-//         const newDiv = document.createElement("div");
-//         newDiv.innerHTML = `
-//     <img src= ${item.img} />
-//     <h3>${item.name}</h3>
-//     <p>${item.price}</p>`    
-//     productsDiv.appendChild(newDiv);
+const eachItem = () => {
+    const productsDiv = document.getElementById("products");
+    productsRender.forEach((item,i) => {
+        // console.log(item, i);
+        const newDiv = document.createElement("div");
+        // item img, name, price
+        newDiv.innerHTML = `
+        <img src= ${item.img} />  
+        <h3>${item.name}</h3>
+        <p>${item.price}</p>`    
+        productsDiv.appendChild(newDiv);
 
-//     const select = document.createElement("select");
-//     switch (i) {  
-//         case 0:
-//             select.innerHTML = `
-//                 <option>0</option>
-//                 <option>1</option>
-//                 <option>2</option>
-//                 <option>3</option>`            
-//             break;
-//         case 1:
-//             select.innerHTML = `
-//                 <option>0</option>
-//                 <option>1</option>
-//                 <option>2</option>
-//                 <option>3</option>
-//                 <option>4</option>`
-//             break;
-//         case 2:
-//             select.innerHTML = `
-//                 <option>0</option>
-//                 <option>1</option>
-//                 <option>2</option>
-//                 <option>3</option>
-//                 <option>4</option>
-//                 <option>5</option>`
-//             break;
-//         case 3:
-//             select.innerHTML = `
-//                 <option>0</option>
-//                 <option>1</option>
-//                 <option>2</option>`
-//             break
-//     }
-//     newDiv.appendChild(select);
-//     });
-// }
-
+        // item option from 0 -to each max_quantity
+        const select = document.createElement("select");
+        select.id = `id${item.id}`;
+        select.setAttribute("onchange",`selectQuantity(${item.id})`);                
+        // default 0
+        const optionZero = document.createElement("option"); 
+        optionZero.innerText = 0;
+        select.appendChild(optionZero);
+        for (let i = 0; i < item.max_quantity; i++) {
+            // max_quantities
+            const option = document.createElement("option");
+            option.innerText = i + 1; // quantity + 1 to plus the 0
+            select.appendChild(option);
+            newDiv.appendChild(select);
+        }
+    })
+}
 eachItem();
 
+const selectQuantity = (idOfSelect)=>{
+    const selectId = document.querySelector("#id"+ idOfSelect);
+    let quantity = selectId.value;
+    let price = productsRender[idOfSelect - 1].price;
+    // each items quantity * price
+    const result = quantity*price
+    // set the result on individual id, this will over write the obj when same item was chose
+    quantityObj[idOfSelect] = Number(result.toFixed(2));
+    // console.log(quantityObj);
 
 
-// const eachItem = () => {
-//     const productsDiv = document.getElementById("products");
-//     productsRender.forEach((item, i) => {
-//         console.log(item, i);
-//         const newDiv = document.createElement("div");
+const totalSum = ()=>{
+    let totalBudget = `50.00`;
+    for (const key in quantityObj) {        
+        const span = document.querySelector("span");
+        totalBudget -= quantityObj[key];
+        span.innerHTML = `£${totalBudget.toFixed(2)}`;
 
-//         newDiv.innerHTML = `
-//     <img src= ${item.img} />
-//     <h3>${item.name}</h3>
-//     <p>${item.price}</p>  
-//     <select>
-//         <option>0</option>
-//         <option>1</option>
-//         <option>2</option>
-//         <option>3</option>
-//     </select>
+        while (totalBudget < 0) {
+            const error = document.getElementById("remaining");
+            const errorDiv = document.createElement("div")
+            errorDiv.className = "error"
+            errorDiv.innerHTML = `Not enough money left for that!`;
+            error.appendChild(errorDiv);
+            totalBudget++;                     
+        }        
+    }
+}
+totalSum();
+}
 
-//     <img src= ${item.img} />
-//     <h3>${item.name}</h3>
-//     <p>${item.price}</p>  
-//     <select>
-//         <option>0</option>
-//         <option>1</option>
-//         <option>2</option>
-//         <option>3</option>
-//         <option>4</option>
-//     </select>
-
-//     <img src= ${item.img} />
-//     <h3>${item.name}</h3>
-//     <p>${item.price}</p> 
-//     <select>
-//         <option>0</option>
-//         <option>1</option>
-//         <option>2</option>
-//         <option>3</option>
-//         <option>4</option>
-//         <option>5</option>
-//     </select>
-
-//     <img src= ${item.img} />
-//     <h3>${item.name}</h3>
-//     <p>${item.price}</p>
-//     <select>
-//         <option>0</option>
-//         <option>1</option>
-//         <option>2</option>
-//     </select>`
-//     productsDiv.appendChild(newDiv);
-
-//     })
-// }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// // const productsContainer = document.querySelector("#products");
-
-// // localStorage.firstName = "John"
-// // localStorage.lastName = "Smith"
-
-// // const user = {
-// //     firstName: localStorage.getItem("firstName"),
-// //     lastName: localStorage.getItem("lastName"),
-// // };
-
-// // console.log(user);
-
-// // const myJson = {
-// //     "user": {
-// //         "name": "Sido",
-// //         "age": "26",
-// //         "height": {
-// //             "unitSystem": "cm",
-// //             "value": "200"
-// //         }
-// //     }
-// // }
-
-// // console.log(myJson);
-
-// // localStorage.myJson = myJson;
-
-// // const testJson = '{"title":"My first blog"}'
-
-// // const parsedJson = JSON.parse(testJson);
-// // console.log(testJson);
-// // console.log(parsedJson);
-
-// // const parsedUser = JSON.stringify(user);
-// // console.log(parsedUser);
-
-// // localStorage.userObj = user;
-// // localStorage.userStr = parsedUser;
-
-
-// // const tasks = [
-// //     {
-// //         value: "Buy milk",
-// //         isCompleted: false
-// //     }, 
-// //     {
-// //         value: "Read book",
-// //         isCompleted: false
-// //     },
-// //     {
-// //         value: "Training",
-// //         isCompleted: false
-// //     }
-// // ];
-
-// // localStorage.tasks = JSON.stringify(tasks);
-
-// const tasks = JSON.parse(localStorage.tasks);
-// const ul = document.createElement("ul");
-
-// tasks.forEach((task, i) => {
-//     const li = document.createElement("li");
-//     li.innerText = `${i+1}.${task.value}`;
-//     ul.appendChild(li);
-
-
-
-    
-// });
-
-// document.body.appendChild(ul);
