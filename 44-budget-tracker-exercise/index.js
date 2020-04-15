@@ -11,7 +11,7 @@ const eachItem = () => {
         newDiv.innerHTML = `
         <img src= ${item.img} />  
         <h3>${item.name}</h3>
-        <p>${item.price}</p>`    
+        <p>£${item.price}</p>`    
         productsDiv.appendChild(newDiv);
 
         // item option from 0 -to each max_quantity
@@ -49,18 +49,20 @@ const totalSum = ()=>{
     for (const key in quantityObj) {        
         const span = document.querySelector("span");
         totalBudget -= quantityObj[key];
-        span.innerHTML = `£${totalBudget.toFixed(2)}`;
 
-        while (totalBudget < 0) {
+        if (totalBudget > 0) {
+            span.innerHTML = `£${totalBudget.toFixed(2)}`;            
+        }else if(totalBudget < 0){
             const error = document.getElementById("remaining");
             const errorDiv = document.createElement("div")
             errorDiv.className = "error"
             errorDiv.innerHTML = `Not enough money left for that!`;
             error.appendChild(errorDiv);
-            totalBudget++;                     
-        }        
+            setTimeout(() => {
+                errorDiv.remove();    
+            }, 2000);
+        }      
     }
 }
 totalSum();
 }
-
