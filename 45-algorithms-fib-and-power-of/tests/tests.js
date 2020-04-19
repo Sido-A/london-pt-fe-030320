@@ -1,3 +1,5 @@
+
+
 // Exercise 1
 describe("generateFibonacci", () => {
 	test("should calculate fibonacci correctly", () => {
