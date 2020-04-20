@@ -19,7 +19,7 @@ const rot13 = (text) => {
     userInput = text.split("");
 
     // check each letter and return
-    return userInput.map.call(userInput, function (splitText) {
+    return userInput.map.call(userInput,  (splitText)=>{
         unicode = splitText.charCodeAt(0);
 
         // A=> 65, N=> 78 || a=> 97, n=> 110 if the text unicode match plus 13
