@@ -17,20 +17,70 @@ const input = document.querySelector("input");
  * in {result} element, otherwise render
  * `Request failed with status code: {errorCode}`
  */
+// const BOOKS_URL = "https://www.reddit.com/r/books.json";
+// const promise = fetch(BOOKS_URL);
+
+// const displayMessage = response =>{
+//     const success = document.createElement("div")
+//     success.innerText = response.url;
+//     document.body.append(success);
+// }
+// promise.then((response)=> console.log(response))
+
+
+
+
+const responseSuccess = async response => {
+    // console.log(response.url);
+    
+    return await new Promise(resolve=>{
+        const anchorLink = document.createElement("a");
+        result.innerText = "Valid link!";
+        result.style.color = "green";
+        anchorLink.innerText = " link";
+        anchorLink.setAttribute("target", "_blank");
+        anchorLink.href = response;
+        result.appendChild(anchorLink);
+        resolve();
+    })
+}
+ 
+const responseError = async response => {
+    // console.log(response.url);
+    
+    return await new Promise((resolve)=>{
+        const anchorLink = document.createElement("a");
+        result.innerText = "Request failed with status code: ";
+        result.style.color = "red";
+        anchorLink.innerText = response;
+        anchorLink.style.color = "red";
+        result.appendChild(anchorLink);
+        resolve();
+    })
+}
+
 
  const getResponse = (url)=>{
-     fetch(url).then((response)=>{
-         if (response.ok) {
-             console.log("Valid");    
+      fetch(url).then((response)=>{
+         if (response.ok) {  
+             responseSuccess(url);
          } else {
-             console.log(response);
-             
-             console.log(`Request failed with status code:`);             
+            responseError(response.status)
          }
      })
  }
 
-getResponse(10)
+// getResponse("https://www.reddit.com/r/books.json");
+// getResponse("https://flippingbook.com/404");
+input.addEventListener("focus",()=>{
+    input.value = "";
+    result.innerText = "";
+})
+
+form.addEventListener("submit", () => {
+    getResponse(input.value);
+});
+
 
 /**
  * Description of the application:
