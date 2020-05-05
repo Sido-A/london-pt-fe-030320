@@ -57,7 +57,7 @@ const asyncCookMeal = async ingredientsToCook => {
   let arrOfIngredientAndTime = [];
   let timeToCook = [];
   return await new Promise((resolve) => {
-  ingredientsToCook.map(ingredient=>{
+  ingredientsToCook.forEach(ingredient=>{
     asyncCookIngredient(ingredient)
     
     console.log(`${ingredient.name} cooked!`);
