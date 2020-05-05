@@ -21,11 +21,22 @@ const ingredients = [
  *
  */
 
+const asyncCookIngredient = async ingredient =>{
+  // console.log(ingredient); // name , time
+  return await new Promise ((resolve)=>{
+    return setTimeout(() => {
+      resolve(ingredient)
+    }, ingredient.time);
+  })
+ }
+// asyncCookIngredient({name: "carrot", time: 500})
+// .then((message)=>{
+//   console.log(`${message.name} cooked`);
+// });
 
 /**
  * Exercise 2
- *
- * create a function {asyncCookMeal} which will recieve an
+ * create a function {asyncCookMeal} which will receive an
  * array of {ingredientsToCook} and call {asyncCookIngredient} for
  * each ingredient
  *
@@ -39,5 +50,28 @@ const ingredients = [
  *  ingredientNames: ["carrot", "onion"],
  *  totalTime: 750
  * }
- *
  */
+
+const asyncCookMeal = async ingredientsToCook => {
+  let objCooked = {}
+  let arrOfIngredientAndTime = [];
+  let timeToCook = [];
+  return await new Promise((resolve) => {
+  ingredientsToCook.map(ingredient=>{
+    asyncCookIngredient(ingredient)
+    
+    console.log(`${ingredient.name} cooked!`);
+    arrOfIngredientAndTime.push(ingredient.name)
+    timeToCook.push(ingredient.time)
+  })
+    objCooked.ingredientNames = arrOfIngredientAndTime;
+
+    const sum = timeToCook.reduce((a,b)=> a+b, 0)
+    objCooked.totalTime = sum; 
+
+    resolve(objCooked);
+
+  }).then((showObj) => console.log(showObj))
+}
+
+asyncCookMeal(ingredients);
