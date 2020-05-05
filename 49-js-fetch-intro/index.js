@@ -18,6 +18,20 @@ const input = document.querySelector("input");
  * `Request failed with status code: {errorCode}`
  */
 
+ const getResponse = (url)=>{
+     fetch(url).then((response)=>{
+         if (response.ok) {
+             console.log("Valid");    
+         } else {
+             console.log(response);
+             
+             console.log(`Request failed with status code:`);             
+         }
+     })
+ }
+
+getResponse(10)
+
 /**
  * Description of the application:
  *
