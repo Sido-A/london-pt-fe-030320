@@ -18,6 +18,21 @@ const input = document.querySelector("input");
  * string in {.result} element
  */
 
+ const getResponse = url => {
+     fetch(url)
+     .then(response=> response.text())
+     .then(text=> result.innerText =text)
+ }
+
+
+input.addEventListener("focus", () => {
+    input.value = "";
+    result.innerText = "";
+})
+
+form.addEventListener("submit", () => {
+    getResponse(input.value);
+});
 
 /**
  * Description of the application:
