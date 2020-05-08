@@ -23,6 +23,7 @@ let members = [];
  *
  */
 
+<<<<<<< HEAD
 const renderMembers = (requiredInfo) => {
    console.log("requiredInfo",requiredInfo);
   const { name, born, died, gender, culture } = requiredInfo;
@@ -101,3 +102,15 @@ const houseData = async (url) => {
 };
 
 houseData(houseURL);
+=======
+ /** 
+  * HTML for each member: 
+  * <li>
+  *     <p class="name">Bilbo Baggins</p>
+  *     <p class="life">1777 – 1888</p>
+  *     <p class="gender"><strong>Gender: </strong>Male</p>
+  *     <p class="culture"><strong>Culture: </strong>Hobbit</p>
+  * </li>
+ */
+
+>>>>>>> 313149d5869877fe032d44c9a1310cfabb3e670f
