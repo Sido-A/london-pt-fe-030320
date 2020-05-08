@@ -5,15 +5,7 @@ const houseURL = "https://anapioficeandfire.com/api/houses/378";
 // STORE YOUR SWORN MEMBERS IN {members}
 let members = [];
 // =============================
-/* <li>
- *   <p class="name">Bilbo Baggins</p>
- *     <p class="life">1777 – 1888</p>
- *     <p class="gender"><strong>Gender: </strong>Male</p>
- *     <p class="culture"><strong>Culture: </strong>Hobbit</p>
- * </li> */
-
 /**
- *
  * REQUIREMENTS:
  *
  * 1. I should be able to see all {swornMembers}
@@ -23,9 +15,7 @@ let members = [];
  *
  */
 
-<<<<<<< HEAD
 const renderMembers = (requiredInfo) => {
-   console.log("requiredInfo",requiredInfo);
   const { name, born, died, gender, culture } = requiredInfo;
   const li = document.createElement("li");
   li.innerHTML = `
@@ -34,43 +24,38 @@ const renderMembers = (requiredInfo) => {
       <p class="gender"><strong>Gender: </strong>${gender}</p>
       <p class="culture"><strong>Culture: </strong>${culture}</p>`;
   resultEl.append(li);
-
-  // return li;
+  return li;
 };
 
 //
 const displayFilteredMembers = async (promises) => {
-  // const promises = await Promise.all(memberData).then(
-  //   (memberData) => memberData
-  // );
-  console.log(promises);
-  
-  promises.forEach((promise) => {    
+  resultEl.innerHTML = "";
+  await promises.forEach((promise) => {
     renderMembers(promise);
   });
 };
 
 // need to filter user input alphabet,in real time
 const filterMembers = async (mappedMembers) => {
-  // console.log(mappedMembers); // array
   const promises = await Promise.all(mappedMembers).then(
-    (memberData) => memberData);
-     
-    searchEl.addEventListener("keyup",(e) => {
-      const value = e.target.value.toLowerCase();
-      const filtered = promises.filter(promise => {
-        const name = promise.name.toLowerCase();
-        // console.log(name);  
-        if (name.match(value)) {
-          // return something 
-          console.log("inputValue: ",value);                
-          return true;
-        }
-      })
-      console.log("filtered",filtered);      
-      displayFilteredMembers(filtered)
-    })
-  //  displayFilteredMembers(promises)
+    (memberData) => memberData
+  );
+
+  // if no input value rendering everything
+  if (searchEl.value == "") {
+    displayFilteredMembers(promises);
+  }
+  // when user input alphabet it'll filter and show the filtered ones
+  searchEl.addEventListener("keyup", (e) => {
+    const value = e.target.value.toLowerCase();
+    const filtered = promises.filter((promise) => {
+      const name = promise.name.toLowerCase();
+      if (name.match(value)) {
+        return true;
+      }
+    });
+    displayFilteredMembers(filtered);
+  });
 };
 
 const houseMembers = async (urls) => {
@@ -102,15 +87,12 @@ const houseData = async (url) => {
 };
 
 houseData(houseURL);
-=======
- /** 
-  * HTML for each member: 
-  * <li>
-  *     <p class="name">Bilbo Baggins</p>
-  *     <p class="life">1777 – 1888</p>
-  *     <p class="gender"><strong>Gender: </strong>Male</p>
-  *     <p class="culture"><strong>Culture: </strong>Hobbit</p>
-  * </li>
+/**
+ * HTML for each member:
+ * <li>
+ *     <p class="name">Bilbo Baggins</p>
+ *     <p class="life">1777 – 1888</p>
+ *     <p class="gender"><strong>Gender: </strong>Male</p>
+ *     <p class="culture"><strong>Culture: </strong>Hobbit</p>
+ * </li>
  */
-
->>>>>>> 313149d5869877fe032d44c9a1310cfabb3e670f
