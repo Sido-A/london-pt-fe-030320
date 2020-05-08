@@ -21,10 +21,10 @@ const ingredients = [
  *
  */
 
-const asyncCookIngredient = async ingredient =>{
+const asyncCookIngredient = ingredient =>{
   // console.log(ingredient); // name , time
-  return await new Promise ((resolve)=>{
-    return setTimeout(() => {
+  return new Promise ((resolve)=>{
+     setTimeout(() => {
       resolve(ingredient)
     }, ingredient.time);
   })
@@ -71,7 +71,7 @@ const asyncCookMeal = async ingredientsToCook => {
 
     resolve(objCooked);
 
-  }).then((showObj) => console.log(showObj))
+  }).then((showObj) => showObj)
 }
 
 asyncCookMeal(ingredients);

@@ -17,11 +17,50 @@ const input = document.querySelector("input");
  * When you get a response, return an array of facts.
  */
 
-const fetchData = async (url) => {
-    const response = await fetch(url).then((resp) => resp.json());
-    
-    return response.all;
-};
+ // return data object in a array
+const fetchData = async url=>{
+	const factArr = await fetch(url).then(response=> response.json())
+	// console.log(factArr.all);
+	return factArr.all;
+}
+
+
+// get random facts within the object length
+const randomFacts = (length) =>{
+	return Math.floor(Math.random() * length);
+}
+
+// render facts
+const factElement = (facts)=>{	
+	result.innerHTML = "";
+	facts.forEach((fact, i) => {
+		// console.log(fact);
+	const list = document.createElement("li");
+			if (facts.user == null) {
+				list.innerHTML = `<p class="fact">${fact.text}</p><p class="author">Anonymous</p>`
+			} else {
+				const userFullName = fact.user.name.first + fact.user.name.last;
+				list.innerHTML = `<p class="fact">${fact.text}</p><p class="author">${userFullName}</p>`
+			}
+			result.append(list);
+	})
+}
+
+/* 
+<li>
+	<p class="fact">Text</p>
+	<p class="author">Author</p>
+</li>  
+*/
+
+button.addEventListener("click", async ()=>{
+	const facts = await fetchData("https://cat-fact.herokuapp.com/facts");
+	const factsArr = []	
+	for (let i = 0; i < 3; i++) {
+		factsArr.push(facts[randomFacts(facts.length)])	
+	}	
+	factElement(factsArr);
+})
 
 /**
  * Description of the application:
@@ -30,34 +69,3 @@ const fetchData = async (url) => {
  * 1. click on a button "Get random facts"
  * 2. view 3 random facts in ".result" element
  */
-
-const randomNum = (limit) => {
-	return Math.floor(Math.random() * limit);
-};
-
-const renderCats = (cats) => {
-	result.innerHTML = "";
-
-	cats.forEach((cat) => {
-		const li = document.createElement("li");
-		const author = cat.user
-			? `${cat.user.name.first} ${cat.user.name.last}`
-            : "Unknown";
-            
-		li.innerHTML = `
-            <p class="fact">${cat.text}</p>
-            <p class="author">${author}</p>
-        `;
-		result.appendChild(li);
-	});
-};
-
-button.addEventListener("click", async () => {
-    const cats = await fetchData("https://cat-fact.herokuapp.com/facts");
-	const catsToRender = [];
-	for (let i = 0; i < 3; i++) {
-		catsToRender.push(cats[randomNum(cats.length)]);
-    }
-
-	renderCats(catsToRender);
-});

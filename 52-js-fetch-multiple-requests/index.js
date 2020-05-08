@@ -5,77 +5,99 @@ const houseURL = "https://anapioficeandfire.com/api/houses/378";
 // STORE YOUR SWORN MEMBERS IN {members}
 let members = [];
 // =============================
+/* <li>
+ *   <p class="name">Bilbo Baggins</p>
+ *     <p class="life">1777 – 1888</p>
+ *     <p class="gender"><strong>Gender: </strong>Male</p>
+ *     <p class="culture"><strong>Culture: </strong>Hobbit</p>
+ * </li> */
 
 /**
- * 
+ *
  * REQUIREMENTS:
- * 
+ *
  * 1. I should be able to see all {swornMembers}
  * after the page has loaded.
  * 2. When I type a query inside the input it should only
  * display members whose name includes the query
+ *
  */
 
- /** 
-  * HTML for each member: 
-  * <li>
-  *     <p class="name">Bilbo Baggins</p>
-  *     <p class="life">1777 – 1888</p>
-  *     <p class="gender"><strong>Gender: </strong>Male</p>
-  *     <p class="culture"><strong>Culture: </strong>Hobbit</p>
-  * </li>
- */
+const renderMembers = (requiredInfo) => {
+   console.log("requiredInfo",requiredInfo);
+  const { name, born, died, gender, culture } = requiredInfo;
+  const li = document.createElement("li");
+  li.innerHTML = `
+      <p class="name">${name}</p>
+      <p class="life">${born} – ${died}</p>
+      <p class="gender"><strong>Gender: </strong>${gender}</p>
+      <p class="culture"><strong>Culture: </strong>${culture}</p>`;
+  resultEl.append(li);
 
-const createAMemberEl = (member) => {
-	const li = document.createElement("li");
-	const { name, gender, born, died, culture } = member;
-
-	li.innerHTML = `
-        <p class="name">${name}</p>
-        <p class="life">${born} – ${died}</p>
-        <p class="gender"><strong>Gender: </strong>${gender}</p>
-        <p class="culture"><strong>Culture: </strong>${culture}</p>
-    `;
-
-	return li;
+  // return li;
 };
 
-const fetchData = async (url) => await fetch(url).then((resp) => resp.json());
-
-const swornMembers = async () => {
-	const urls = await fetchData(houseURL);
-
-	return urls.swornMembers;
+//
+const displayFilteredMembers = async (promises) => {
+  // const promises = await Promise.all(memberData).then(
+  //   (memberData) => memberData
+  // );
+  console.log(promises);
+  
+  promises.forEach((promise) => {    
+    renderMembers(promise);
+  });
 };
 
-const getSwornMembersData = async () => {
-	const swornURLs = await swornMembers();
-
-	const memberPromises = swornURLs.map((url) => fetchData(url));
-
-	members = await Promise.all(memberPromises);
+// need to filter user input alphabet,in real time
+const filterMembers = async (mappedMembers) => {
+  // console.log(mappedMembers); // array
+  const promises = await Promise.all(mappedMembers).then(
+    (memberData) => memberData);
+     
+    searchEl.addEventListener("keyup",(e) => {
+      const value = e.target.value.toLowerCase();
+      const filtered = promises.filter(promise => {
+        const name = promise.name.toLowerCase();
+        // console.log(name);  
+        if (name.match(value)) {
+          // return something 
+          console.log("inputValue: ",value);                
+          return true;
+        }
+      })
+      console.log("filtered",filtered);      
+      displayFilteredMembers(filtered)
+    })
+  //  displayFilteredMembers(promises)
 };
 
-const filterMembers = (members, query) =>
-	members.filter((member) => member.name.toLowerCase().match(query));
-
-const renderMembers = (members) => {
-	resultEl.innerHTML = "";
-	members.forEach((member) => {
-		resultEl.appendChild(createAMemberEl(member));
-	});
+const houseMembers = async (urls) => {
+  // loop through swornMembers each url and
+  // create new array with required keys.
+  const mappedMembers = urls.map(async (url) => {
+    return await fetch(url)
+      .then((res) => res.json())
+      .then((res) => ({
+        name: res.name,
+        born: res.born,
+        died: res.died,
+        gender: res.gender,
+        culture: res.culture,
+      }));
+  });
+  // passing promises to
+  // displayMembers(mappedMembers);
+  filterMembers(mappedMembers);
 };
 
-const init = async () => {
-	await getSwornMembersData();
-	renderMembers(members);
-
-	searchEl.addEventListener("keyup", (event) => {
-		const query = event.target.value.toLowerCase();
-        const filteredMembers = filterMembers(members, query);
-        
-		renderMembers(filteredMembers);
-	});
+const houseData = async (url) => {
+  // getting swornMembers each urls
+  const getData = await fetch(url)
+    .then((res) => res.json())
+    .then((res) => res.swornMembers);
+  // passing swornMembersUrls to houseMembers function
+  houseMembers(getData);
 };
 
-init();
+houseData(houseURL);
