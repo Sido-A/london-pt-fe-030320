@@ -1,9 +1,9 @@
 // set base URL to your json server
 // Ex: http://localhost:3000
 const baseURL = "http://localhost:3000";
-const COMMENTS_URL = "http://localhost:3000/comments";
 // const container = document.querySelector(".form_container");
 // const textInput = document.querySelector(".textInput");
+// const idInput = document.querySelector(".idInput");
 // const posts = document.querySelector(".posts");
 
 /**
@@ -18,37 +18,17 @@ const COMMENTS_URL = "http://localhost:3000/comments";
 /**
  * Exercise 1
  *
- * create an async function {getComments}, which takes {url} as an argument,
+ * create an async function {getComments}, which
  * gets data from URL and returns the data as JS objects
  *
  * Note: test this function with an URL from your json-server API
  */
 
-//FAIL TEST
-const getComments = async()  => {
+const getComments = async () => {
   return await fetch(`${baseURL}/comments`).then((res) => res.json());
 };
 
-// getComments("http://localhost:3000/comments");
-// getComments("https://jsonapi.org/format/");
-
-// PASS TEST
-// const getComment = async () => {
-//   const promises = await fetch("http://localhost:3000/comments").then((res) => res.json());
-//   return promises;
-// };
-// getComment();
-
-// const mappedPromises = promises.filter((promise) => {
-//   // console.log(promise.body);
-//   const comments = promise.body;
-//   if (!comments) {
-//     return false;
-//   } else {
-//     return comments;
-//   }
-// });
-// return mappedPromises;
+getComments();
 
 /**
  * Exercise 2
@@ -62,9 +42,7 @@ const getComments = async()  => {
  * Don't forget to handle errors.
  */
 const postComment = async (newComment) => {
-  console.log(newComment);
-
-  const configObject = {
+  const configObjectPost = {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -73,15 +51,15 @@ const postComment = async (newComment) => {
     body: JSON.stringify(newComment),
   };
 
-  fetch("/comments", configObject)
+  return await fetch(`${baseURL}/comments`, configObjectPost)
     .then((res) => {
       if (res.ok) {
         return res.json();
       } else {
-        throw res;
+        throw "Oops something went wrong!";
       }
     })
-    .catch((error) => console.error(error, "Oops something went wrong!"));
+    .catch((error) => error)
 };
 
 /**
@@ -99,7 +77,28 @@ const postComment = async (newComment) => {
  * Don't forget to handle errors.
  */
 
-// const patchComment = async (comment, newCommentBody) => {};
+const patchComment = async (comment, newCommentBody) => {
+  const configObjectPatch = {
+    method: "PATCH",
+    headers: {
+      "Content-Type": "application/json",
+      Accept: "application/json",
+    },
+    body: JSON.stringify({ body: newCommentBody }),
+  };
+
+  return await fetch(`${baseURL}/comments/${comment.id}`, configObjectPatch)
+    .then((res) => {
+      if (res.ok) {
+        return res.json();
+      } else {
+        throw "Oops we couldn't update that!";
+      }
+    })
+    .catch((error) => error)
+};
+
+// patchComment({id:4},"new comment manually")
 
 /**
  * Exercise 4
@@ -113,23 +112,63 @@ const postComment = async (newComment) => {
  * Don't forget to handle errors.
  */
 
+const putComment = async (comment) => {
+  const configObjectPut = {
+    method: "PUT",
+    headers: {
+      "Content-Type": "application/json",
+      Accept: "application/json",
+    },
+    body: JSON.stringify(comment),
+  };
+
+  return await fetch(`${baseURL}/comments/${comment.id}`, configObjectPut)
+    .then((res) => {
+      if (res.ok) {
+        return res.json();
+      } else {
+        throw "Oops we couldn't update that!";
+      }
+    })
+    .catch((error) => error)
+};
+
+
+
 /**
  * Exercise 5
  *
- * create an async function {deleteComment}, which takes {url} as an argument,
- * and delete selected comment from DB.
+ * create an async function {deleteComment}, which takes {comment} as an argument,
+ * and deletes the selected comment from DB.
  * This function should return "Deleted!" if successful,
- * or "That could not be deleted!" in not.
+ * or "That could not be deleted!" if not.
  *
  * Don't forget to handle errors.
  */
 
-container.addEventListener("submit", (e) => {
-  e.preventDefault();
-  const div = document.createElement("div");
-  div.classList.add("post");
-  div.style.color = "#fff";
-  div.innerHTML = `<p>${textInput.value}</p>`;
-  posts.append(div);
-  postComment(textInput.value);
-});
+const deleteComment = async (comment) => {
+  const configObjectDelete = {
+    method: "DELETE",
+    headers: {
+      "Content-Type": "application/json",
+      Accept: "application/json",
+    },
+    body: JSON.stringify(comment),
+  };
+  return await fetch(`${baseURL}/comments/${comment.id}`, configObjectDelete)
+    .then((res) => {
+      if (res.ok) {
+        return "Deleted!";
+      } else {
+        throw "That could not be deleted!";
+      }
+    })
+    .catch((error) => error)
+};
+
+// container.addEventListener("submit", (e) => {
+//   e.preventDefault();
+//   // console.log(idInput.value, textInput.value);
+
+//   // patchComment({id: idInput.value},textInput.value);
+// });
