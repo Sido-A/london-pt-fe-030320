@@ -48,13 +48,13 @@ const filterMembers = async (mappedMembers) => {
   // when user input alphabet it'll filter and show the filtered ones
   searchEl.addEventListener("keyup", (e) => {
     const value = e.target.value.toLowerCase();
-    const filtered = promises.filter((promise) => {
-      const name = promise.name.toLowerCase();
-      if (name.match(value)) {
-        return true;
-      }
-    });
-    displayFilteredMembers(filtered);
+     members = promises.filter((promise) => {
+       const name = promise.name.toLowerCase();
+       if (name.match(value)) {
+         return true;
+       }
+     });
+    displayFilteredMembers(members);
   });
 };
 
