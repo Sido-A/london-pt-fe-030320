@@ -17,7 +17,6 @@ const input = document.querySelector("input");
  * When you get a response, return an array of facts.
  */
 
-<<<<<<< HEAD
  // return data object in a array
 const fetchData = async url=>{
 	const factArr = await fetch(url).then(response=> response.json())
@@ -62,8 +61,6 @@ button.addEventListener("click", async ()=>{
 	}	
 	factElement(factsArr);
 })
-=======
->>>>>>> 313149d5869877fe032d44c9a1310cfabb3e670f
 
 /**
  * Description of the application:
