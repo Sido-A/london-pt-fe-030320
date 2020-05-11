@@ -1,14 +1,33 @@
+* {
+  box-sizing: border-box;
+}
+
+.loading {
+  margin: 2em;
+  text-align: center;
+  font-weight: 900;
+  font-size: 5em;
+}
+
 .pokemonContainer {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   grid-row: auto;
   grid-gap: 20px;
+  justify-self: center;
+  align-self: center;
+  width: 100%;
+  max-width: 1366px;
+  margin: 0 auto;
 }
+
 
 .pokemon {
   width: 100%;
   min-width: 246px;
   max-width: 246px;
+  margin: 0 auto;
+  margin-top: 5em;
   position: relative;
   overflow: hidden;
   text-align: center;
