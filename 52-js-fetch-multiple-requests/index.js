@@ -38,8 +38,7 @@ const displayFilteredMembers = async (promises) => {
 // need to filter user input alphabet,in real time
 const filterMembers = async (mappedMembers) => {
   const promises = await Promise.all(mappedMembers).then(
-    (memberData) => memberData
-  );
+    (memberData) => memberData);
 
   // if no input value rendering everything
   if (searchEl.value == "") {
