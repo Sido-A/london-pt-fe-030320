@@ -1,5 +1,8 @@
 import React from "react";
 import "./App.css";
+import List from "./list";
+import Title from "./title";
+import TodayDate from "./date";
 
 const APP_TITLE = "Awesome Pet Shop";
 
@@ -17,7 +20,14 @@ const APP_TITLE = "Awesome Pet Shop";
 const App = () => {
   const animals = ["cat", "dog", "giraffe", "pig", "lion", "rabbit"];
 
-  return <div className="app"></div>;
+  return (
+    <div className="app">
+      <h1>{Title(APP_TITLE)}</h1>
+      <ul>{List(animals)}</ul>
+      <div>{TodayDate()}</div>
+    </div>
+  );
 };
 
 export default App;
+
