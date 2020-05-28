@@ -1,0 +1,29 @@
+form > .inner {
+  display: flex;
+  flex-direction: column;
+  background-color: red;
+  padding-top: 1em;
+  padding-bottom: 1em;
+}
+
+.name-input,
+.phone-number-input,
+.address-input {
+  margin: 0.5em;
+}
+
+.name-input input,
+.phone-number-input input,
+.address-input input {
+  padding: 0.5em;
+  border: 2px solid #000;
+  border-radius: 20px;
+}
+
+.submitForm {
+  margin-left: 0.5em;
+  padding: 0.5em 1em;
+  width: 100%;
+  max-width: 100px;
+  margin: 0 auto;
+}

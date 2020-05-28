@@ -1,0 +1,18 @@
+header > .inner {
+    display: flex;
+    justify-content: space-around;
+    background-color: red;
+}
+
+.navigation ul {
+    display: flex;
+    justify-content: space-evenly;
+    background-color: blue;
+    min-height: 50px;
+    line-height: 50px;
+    text-align: center;
+}
+
+.navigation li {
+    padding-left: 1.4em;
+}

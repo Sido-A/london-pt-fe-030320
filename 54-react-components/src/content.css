@@ -1,0 +1,5 @@
+
+.contentWrapper > .inner {
+    background-color: yellow;
+      min-height: 50vh;
+}
