@@ -1,0 +1,14 @@
+body {
+    margin: 1em;
+}
+.newCounter{
+    color: #fff;
+    font-size: 1.3em;
+    background-color: #000;
+    border-radius: .5em;
+    display: block;
+    width: 100%;
+    max-width: 200px;
+    height: 50px;
+    margin: 0 auto;
+}
