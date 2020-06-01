@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, { useState } from "react";
 
 /**
  * Create a User List app
@@ -16,8 +16,44 @@ import React, {useState} from "react";
  * FEEL FREE TO STYLE YOUR APP WITH CSS
  */
 
-function App() {
+const URL = "https://randomuser.me/api/";
 
+function App() {
+  const [users, setUsers] = useState([]);
+
+  const fetchAndAddUser = async () => {
+    const addUser = (user) => setUsers([...users, user]);
+    await fetch(URL)
+      .then((res) => res.json())
+      .then((res) => addUser(res));
+  };
+
+  const fullName = (u) => {
+      const firstName = u.results[0].name.first;
+      const lastName = u.results[0].name.last;
+      return `${firstName} ${lastName}`;    
+  };
+  
+  const removeUser = (user) => setUsers(users.filter((u) => u !== user));
+
+  return (
+    <div>
+      <button onClick={fetchAndAddUser} className="newUser">
+        New User
+      </button>
+      {users.map((u) => (
+        <div className="user">
+          <ul>
+            <li>{fullName(u)}</li>
+          </ul>
+
+          <button onClick={() => removeUser(u)} className="removeUser">
+            Remove
+          </button>
+        </div>
+      ))}
+    </div>
+  );
 }
 
 export default App;
