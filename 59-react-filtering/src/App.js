@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import "./App.css";
+import Contacts from "./Contacts";
 
 /**
  * 
@@ -17,11 +18,12 @@ import "./App.css";
 	</li>
  */
 
+
 const App = () => {
-	return (
-		<div className="App">
-		</div>
-	);
+
+  return <div className="App">
+	  <Contacts />
+  </div>;
 };
 
 export default App;
