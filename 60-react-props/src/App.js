@@ -12,17 +12,11 @@ import UserCard from "./components/UserCard/UserCard";
  * NOTE: DB url - http://localhost:3000/contacts
  */
 const URL = "http://localhost:3000/contacts";
-const getUser = async () => {
-  return await fetch(URL)
-    .then((res) => res.json())
-    .then((res) => res);
-};
 
 const App = () => {
   const [users, setUsers] = useState([]);
 
   if (users.length === 0) {
-    // getUser().then(res=> setUsers(res))    
     fetch(URL)
       .then((res) => res.json())
       .then((res) => setUsers(res));
@@ -31,7 +25,7 @@ const App = () => {
   return (
     <div>
       {users.map((user) => (
-        <UserCard user={user}/>
+        <UserCard user={user} />
       ))}
     </div>
   );
