@@ -1,15 +1,12 @@
 import React, { useState, useEffect } from "react";
 
 const Item = (props) => {
-  const { item, deleteItem, updateCart } = props;
+  const { item, updateCart } = props;
   const { id, name, quantity } = props.item;
   const [inputValue, setInputValue] = useState(quantity);
 
   useEffect(() => {
     setInputValue(quantity);
-    // if (quantity === 0) {
-    //   updateCart(id, parseInt(inputValue));
-    // }
   }, [quantity]);
 
   const inputChange = (e) => {

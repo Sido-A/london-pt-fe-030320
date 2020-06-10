@@ -89,7 +89,7 @@ const App = () => {
         <Store stock={stock} addToCart={addToCart} />
       </div>
       <div className="cart">
-        <Cart cart={cart} deleteItem={deleteItem} updateCart={updateCart} />
+        <Cart cart={cart} updateCart={updateCart} />
       </div>
     </div>
   );
