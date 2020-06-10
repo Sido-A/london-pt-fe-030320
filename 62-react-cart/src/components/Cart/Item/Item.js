@@ -1,14 +1,15 @@
 import React, { useState, useEffect } from "react";
 
 const Item = (props) => {
-  const { id, index, name, quantity, updateItem, deleteFromCart } = props;
+  const { item, deleteItem, updateCart } = props;
+  const { id, name, quantity } = props.item;
   const [inputValue, setInputValue] = useState(quantity);
 
   useEffect(() => {
     setInputValue(quantity);
-    if (quantity === 0) {
-      deleteFromCart(id, parseInt(inputValue));
-    }
+    // if (quantity === 0) {
+    //   updateCart(id, parseInt(inputValue));
+    // }
   }, [quantity]);
 
   const inputChange = (e) => {
@@ -18,12 +19,12 @@ const Item = (props) => {
 
   const handleUpdate = () => {
     const minusQuantity = quantity - inputValue;
-    updateItem(id, parseInt(minusQuantity));
+    updateCart(id, parseInt(minusQuantity));
     setInputValue(inputValue);
   };
 
   const handleDelete = () => {
-    deleteFromCart(id, inputValue);
+    updateCart(id, inputValue, 0);
   };
 
   return (

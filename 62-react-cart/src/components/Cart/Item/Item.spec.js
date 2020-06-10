@@ -39,7 +39,7 @@ describe("Item", () => {
 		const updateCart = jest.fn();
 		const { container } = render(<Item item={item} updateCart={updateCart} />);
 		const input = container.querySelector("input");
-
+		
 		expect(parseInt(input.value)).toEqual(item.quantity);
 	});
 

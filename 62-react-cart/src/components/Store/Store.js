@@ -5,17 +5,17 @@ const Store = (props) => {
   const { stock, addToCart } = props;
 
   return (
-    <ul>
-      {stock.map((s, index) => (
-        <Item
-          id={s.id}
-          index={index}
-          name={s.name}
-          quantity={s.quantity}
-          addToCart={addToCart}
-        />
-      ))}
-    </ul>
+    <div>
+      <h3>Store</h3>
+      <ul>
+        {stock.map((item) => (
+          <Item
+            item={item}
+            addToCart={addToCart}
+          />
+        ))}
+      </ul>
+    </div>
   );
 };
 

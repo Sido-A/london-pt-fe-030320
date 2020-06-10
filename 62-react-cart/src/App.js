@@ -30,10 +30,10 @@ const initialStock = [
 const App = () => {
   const [stock, setStock] = useState([...initialStock]);
   const [cart, setCart] = useState([]);
+  const localStock = [...stock];
+  const localCart = [...cart];
 
-  const addToCart = (index, id, quantity) => {
-    const localStock = [...stock];
-    const localCart = [...cart];
+  const addToCart = (id, quantity) => {
     localStock[id - 1].quantity -= quantity;
     const inCart = localCart.findIndex((item) => item.id === id);
 
@@ -46,53 +46,50 @@ const App = () => {
     setStock(localStock);
   };
 
-  const updateItem = (id, minusQuantity) => {
-    const localStock = [...stock];
-    const localCart = [...cart];
-    localStock[id - 1].quantity += minusQuantity;
-    const inCart = localCart.findIndex((item) => item.id === id);
+  const updateCart = (id, minusQuantity, zero) => {
+    if (zero === 0) {
+      localStock[id - 1].quantity += minusQuantity;
+      const inCart = localCart.findIndex((item) => item.id === id);
 
-    console.log("minusQuantity", minusQuantity);
+      if (inCart !== -1) {
+        localCart[inCart].quantity = minusQuantity;
+      }
 
-    if (inCart !== -1) {
-      localCart[inCart].quantity -= minusQuantity;
+      const filter = localCart.filter((c) => c.id !== id);
+      setCart(filter);
+      setStock(localStock);
+
     } else {
-      localCart.push({ ...localStock[id - 1], quantity: minusQuantity });
+      localStock[id - 1].quantity += minusQuantity;
+      const inCart = localCart.findIndex((item) => item.id === id);
+
+      if (inCart !== -1) {
+        localCart[inCart].quantity -= minusQuantity;
+      } else {
+        localCart.push({ ...localStock[id - 1], quantity: minusQuantity });
+      }
+
+      setCart(localCart);
+      setStock(localStock);
     }
-    setCart(localCart);
-    setStock(localStock);
   };
 
-  const deleteFromCart = (id, quantity) => {
-    const localStock = [...stock];
-    const localCart = [...cart];
-    localStock[id - 1].quantity += quantity;
-    const inCart = localCart.findIndex((item) => item.id === id);
+  const deleteItem = (id, quantity) => {
+    stock[id - 1].quantity += quantity;
 
-    if (inCart !== -1) {
-      localCart[inCart].quantity -= quantity;
-    } else {
-      localCart.push({ ...localStock[id - 1], quantity: quantity });
-    }
-    const filter = localCart.filter((c) => c.id !== id);
+    const updateCart = cart.filter((c) => c.quantity !== 0);
 
-    setCart(filter);
-    setStock(localStock);
+    setCart(updateCart);
+    setStock(stock);
   };
 
   return (
     <div className="app">
       <div className="store">
-        <h3>Store</h3>
         <Store stock={stock} addToCart={addToCart} />
       </div>
       <div className="cart">
-        <h3>Cart</h3>
-        <Cart
-          cart={cart}
-          updateItem={updateItem}
-          deleteFromCart={deleteFromCart}
-        />
+        <Cart cart={cart} deleteItem={deleteItem} updateCart={updateCart} />
       </div>
     </div>
   );

@@ -10,7 +10,6 @@ describe("Item", () => {
 			name: "butter",
 			quantity: 20,
 		};
-		console.log("test",item.name);
 		
 		const { container } = render(<Item item={item} />);
 		const innerHTML = container.innerHTML;
@@ -62,7 +61,6 @@ describe("Item", () => {
 		};
 		const { container } = render(<Item item={item} />);
 		const input = container.querySelector("input");
-console.log("item.quantity", item.quantity);
 
 		expect(parseInt(input.max)).toEqual(item.quantity);
 	});

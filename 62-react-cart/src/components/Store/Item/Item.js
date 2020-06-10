@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from "react";
 
 const Item = (props) => {
-  // console.log(props);
   const [inputValue, setInputValue] = useState("0");
   const [disabled, setDisabled] = useState(false);
 
-  const { index, id, name, quantity, addToCart } = props;
+  const { addToCart } = props;
+  const { index, id, name, quantity } = props.item;
 
   const inputChange = (e) => {
     const quantityValue = e.target.value;
@@ -13,12 +13,14 @@ const Item = (props) => {
   };
 
   const handleAddButton = () => {
-    addToCart(index, id, parseInt(inputValue));
-    if (inputValue == quantity) {
-      setDisabled(!disabled);
+    if (inputValue !== 0) {
+      addToCart(id, parseInt(inputValue));
+      if (parseInt(inputValue)  === quantity) {
+        setDisabled(!disabled);
+        setInputValue("0");
+      }
       setInputValue("0");
     }
-    setInputValue("0");
   };
 
   if (disabled === true) {
@@ -28,7 +30,7 @@ const Item = (props) => {
   }
 
   return (
-    <li>
+    <li key={index}>
       <span>{name}</span>
       <input
         onChange={inputChange}
@@ -41,6 +43,7 @@ const Item = (props) => {
       <button onClick={handleAddButton} disabled={disabled}>
         Add to cart
       </button>
+      {quantity === 0 && <label className="label">Out of Stock</label>}
     </li>
   );
 };
