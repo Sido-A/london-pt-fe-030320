@@ -1,17 +1,18 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { BrowserRouter as Router, Route, NavLink } from "react-router-dom";
-import MainHeader from "./MainHeader"
-
+import MainHeader from "./Savings";
+const BASE = "http://localhost:3000";
+// Wallet
 const Main = () => {
-    return (
-        <div className="mainPage">
-          <div>
-          </div>
-          <div>
-            <h1>hi</h1>
-          </div>
-        </div>
-    );
-}
+  const [user, setUser] = useState([]);
+
+  
+
+  return (
+    <div className="wallet">
+      
+    </div>
+  );
+};
 
 export default Main;

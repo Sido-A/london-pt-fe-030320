@@ -1,0 +1,91 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "firstname": "Sidonie",
+      "lastname": "Abe",
+      "email": "sido@email.com",
+      "password": "sido",
+      "avatar": "",
+      "balance": 1000.01,
+      "Saving_balance": 9800.36,
+      "Loan_balance": -100.0,
+      "transactions": [
+        {
+          "transaction": "McDonald",
+          "debitcredit": "-",
+          "amount": 8.64
+        },
+        {
+          "transaction": "Lidl",
+          "debitcredit": "-",
+          "amount": 39.64
+        },
+        {
+          "transaction": "Bob",
+          "debitcredit": "+",
+          "amount": 10.64
+        },
+        {
+          "transaction": "Pharmacy",
+          "debitcredit": "-",
+          "amount": 11.64
+        }
+      ],
+      "saving": [
+        {
+          "transaction": "Direct deposit",
+          "debit": "+",
+          "amount": 400
+        },
+        {
+          "transaction": "Direct deposit",
+          "debit": "+",
+          "amount": 350
+        },
+        {
+          "transaction": "Rounded expense",
+          "debit": "+",
+          "amount": 0.73
+        },
+        {
+          "transaction": "Rounded expense",
+          "debit": "+",
+          "amount": 0.27
+        }
+      ],
+      "loan": [
+        {
+          "transaction": "Thanks for payment",
+          "debit": "+",
+          "amount": 400
+        },
+        {
+          "transaction": "Thanks for payment",
+          "debit": "+",
+          "amount": 350
+        },
+        {
+          "transaction": "Thanks for payment",
+          "debit": "+",
+          "amount": 100
+        },
+        {
+          "transaction": "Loan",
+          "debit": "-",
+          "amount": 2100
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "firstname": "Bob",
+      "lastname": "Fern",
+      "email": "bob@email.com",
+      "password": "bob",
+      "avator": "",
+      "balance": 0,
+      "transactions": []
+    }
+  ]
+}

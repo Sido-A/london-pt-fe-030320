@@ -5,11 +5,11 @@ import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 const Signup = () => {
   return (
     
-    <div className="signUp">
+    <div className="sign-up">
       {/* 1 */}
       <div>
-        <Link to="/Login">Back</Link>
-        <p>Sign up</p>
+        <Link to="/">Back</Link>
+        <h3>Sign up</h3>
       </div>
       <form>
         <div>
