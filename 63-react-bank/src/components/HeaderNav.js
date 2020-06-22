@@ -1,10 +1,10 @@
 import React, { useState } from "react";
-import { BrowserRouter as Router, NavLink } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
 const HeaderNav = ({ page }) => {
   return (
     <div>
-      {page !== "Main" ? (
+      {page !== "main" ? (
         <ul>
           <li>
             <NavLink activeClassName="active" to="/">
@@ -12,7 +12,7 @@ const HeaderNav = ({ page }) => {
             </NavLink>
           </li>
           <li>
-            <NavLink activeClassName="active" to="/Signup">
+            <NavLink activeClassName="active" to="/signup">
               SIGN UP
             </NavLink>
           </li>
@@ -40,7 +40,7 @@ const HeaderNav = ({ page }) => {
             </NavLink>
           </li>
           <li>
-            <NavLink activeClassName="active" to="/Signout">
+            <NavLink activeClassName="active" to="/">
               Sign out
             </NavLink>
           </li>

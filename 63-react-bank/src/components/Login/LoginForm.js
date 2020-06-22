@@ -1,44 +1,46 @@
-import React, { useState, useEffect } from "react";
-import { Link, useHistory } from "react-router-dom";
-import fetchUser from "../../API";
+import React from "react";
+import { Link } from "react-router-dom";
 
-const LoginForm = ({ handleClick }) => {
-  const history = useHistory();
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [disabled, setDisabled] = useState(false);
-  const [user, setUser] = useState([]);
+const LoginForm = ({ changeHandler,submitLogin, inputValue,disabled }) => {
+  // const history = useHistory();
+  // const [email, setEmail] = useState("");
+  // const [password, setPassword] = useState("");
+  // const [disabled, setDisabled] = useState(false);
+  // const [user, setUser] = useState([]);
 
-  useEffect(() => {
-    const getUser = async () => {
-      return fetchUser().then((res) => setUser(res));
-    };
-    getUser();
-  }, []);
+  // useEffect(() => {
+  //   const getUser = async () => {
+  //     return fetchUser().then((res) => setUser(res));
+  //   };
+  //   getUser();
+  // }, []);
 
-  const handleChange = (e) => {
-    e.target.name === "email"
-      ? setEmail(e.target.value)
-      : setPassword(e.target.value);
-    if (email && password !== "") {
-      setDisabled(!false);
-    }
-  };
+  // const handleChange = (e) => {
+  //   e.target.name === "email"
+  //     ? setEmail(e.target.value)
+  //     : setPassword(e.target.value);
+  //   if (email && password !== "") {
+  //     setDisabled(!false);
+  //   }
+  // };
 
-  const submitLogin = (e) => {
-    e.preventDefault();
-    // to main page if successful
-    const loginUser = user
-      .filter((u) => u.email === email)
-      .filter((u) => u.password === password);
+  // const submitLogin = (e) => {
+  //   e.preventDefault();
+  //   // to main page if successful
+  //   const loginUser = user
+  //     .filter((u) => u.email === email)
+  //     .filter((u) => u.password === password);
+  //     console.log(loginUser);
 
-    if (loginUser) {
-      history.push("/Main");
-    } else {
-      setEmail("");
-      setPassword("");
-    }
-  };
+  //   if (loginUser.length !== 0) {
+  //     history.push("/main");
+  //     handleClick();
+  //   } else {
+  //     alert("Your email or password is not correct");
+  //     setEmail("");
+  //     setPassword("");
+  //   }
+  // };
 
   return (
     <div className="login-main">
@@ -47,32 +49,36 @@ const LoginForm = ({ handleClick }) => {
         {/*2&3*/}
         <h3>Login</h3>
       </div>
-      <form onSubmit={(e) => submitLogin(e)}>
+      {/* <p className="error-message">Your email or password is not correct</p> */}
+      <form onSubmit={submitLogin}>
         {/*4*/}
-        <label for="email">Email</label>
+        <label htmlFor="email">Email</label>
         <input
-          value={email}
+          value={inputValue.email}
           type="email"
           name="email"
-          onChange={handleChange}
+          onChange={changeHandler}
+          placeholder="email@email.com"
           required
         />
-        <label for="password">Password</label>
+        <label htmlFor="password">Password</label>
         <input
-          value={password}
+          value={inputValue.password}
           type="password"
           name="password"
-          onChange={handleChange}
+          onChange={changeHandler}
+          placeholder="Minimum 4 character"
+          min="4"
           required
         />
         {/* <Link to="/Main"> */}
-        <button type="submit" onClick={handleClick} disabled={!disabled}>
+        <button type="submit" disabled={!disabled}>
           Login
         </button>
         {/* </Link> */}
 
         {/* to sign up page */}
-        <Link to="/Signup">Sign up</Link>
+        <Link to="/signup">Sign up</Link>
       </form>
     </div>
   );

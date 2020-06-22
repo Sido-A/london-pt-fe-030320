@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from "react";
 import { BrowserRouter as Router, Route, NavLink } from "react-router-dom";
-import MainHeader from "./Savings";
-const BASE = "http://localhost:3000";
-// Wallet
-const Main = () => {
-  const [user, setUser] = useState([]);
+import fetchUser from "../../API"
 
+// Wallet
+const Main = ({loginUser}) => {
+  console.log(loginUser);
+  
   
 
   return (
