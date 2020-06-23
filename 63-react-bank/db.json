@@ -7,9 +7,17 @@
       "email": "sido@email.com",
       "password": "sido",
       "avatar": "",
-      "balance": 1000.01,
-      "Saving_balance": 9800.36,
-      "Loan_balance": -100.0,
+      "balances": [
+        {
+          "balance": 1000.01
+        },
+        {
+          "saving_balance": 9800.36
+        },
+        {
+          "loan_balance": -100
+        }
+      ],
       "transactions": [
         {
           "transaction": "McDonald",
@@ -32,7 +40,7 @@
           "amount": 11.64
         }
       ],
-      "saving": [
+      "savings": [
         {
           "transaction": "Direct deposit",
           "debit": "+",
@@ -54,7 +62,7 @@
           "amount": 0.27
         }
       ],
-      "loan": [
+      "loans": [
         {
           "transaction": "Thanks for payment",
           "debit": "+",
@@ -83,9 +91,43 @@
       "lastname": "Fern",
       "email": "bob@email.com",
       "password": "bob",
-      "avator": "",
-      "balance": 0,
-      "transactions": []
+      "avatar": "",
+      "balances": [
+        {
+          "balance": 0
+        },
+        {
+          "saving_balance": 0
+        },
+        {
+          "loan_balance": 0
+        }
+      ],
+      "transactions": [],
+      "savings": [],
+      "loans": []
+    },
+    {
+      "firstname": "Lucie",
+      "lastname": "Abe",
+      "email": "lucie@email.com",
+      "password": "lucie",
+      "avatar": "",
+      "balances": [
+        {
+          "balance": 0
+        },
+        {
+          "saving_balance": 0
+        },
+        {
+          "loan_balance": 0
+        }
+      ],
+      "transactions": [],
+      "savings": [],
+      "loans": [],
+      "id": 3
     }
   ]
 }

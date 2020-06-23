@@ -1,16 +1,23 @@
-import React, { useState } from "react";
+import React from "react";
 import { NavLink } from "react-router-dom";
+import logo from "../img/CH.svg"
+// import "../scss/App.scss"
 
-const HeaderNav = ({ page }) => {
+const HeaderNav = ({ page, handleClick }) => {
   return (
-    <div>
+    <div className="header-navs">
+      <div className="logo">
+        <img src={logo} />
+      </div>
+
       {page !== "main" ? (
-        <ul>
+        <ul className="header-menu">
           <li>
             <NavLink activeClassName="active" to="/">
               LOGIN
             </NavLink>
           </li>
+          <span>/</span>
           <li>
             <NavLink activeClassName="active" to="/signup">
               SIGN UP
@@ -18,7 +25,7 @@ const HeaderNav = ({ page }) => {
           </li>
         </ul>
       ) : (
-        <ul>
+        <ul className="header-menu">
           <li>
             <NavLink activeClassName="active" to="/Wallet">
               Wallet
@@ -40,11 +47,13 @@ const HeaderNav = ({ page }) => {
             </NavLink>
           </li>
           <li>
-            <NavLink activeClassName="active" to="/">
+            <NavLink activeClassName="active" to="/" 
+            onClick={()=>handleClick("login")}
+            >
               Sign out
             </NavLink>
           </li>
-        </ul>
+        </ul> 
       )}
     </div>
   );

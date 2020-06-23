@@ -1,28 +1,21 @@
 import React, { useState, useEffect } from "react";
-import "./App.css";
+import "./normalize.css";
+import "./scss/App.scss";
 import { Route, Switch, useHistory } from "react-router-dom";
-import fetchUser, {newUser} from "./API";
+import fetchUser, { newUser } from "./API";
 import HeaderNav from "./components/HeaderNav";
 import LoginForm from "./components/Login/LoginForm";
 import Signup from "./components/Signup/Signup";
 import Main from "./components/Main/Main";
 
-// const loginList = ["Login", "Sign up"];
-// const mainList = ["Wallet", "Savings", "Loans", "Settings", "Sign out"];
-
 const App = () => {
   //set page
-  const [page, setPage] = useState("login");
-  const handleClick = () => {
-    setPage("main");
-  };
-
   const history = useHistory();
-  // const [email, setEmail] = useState("");
-  // const [password, setPassword] = useState("");
-  const [disabled, setDisabled] = useState(false);
+  const [page, setPage] = useState("login");
   const [user, setUser] = useState([]);
   const [loginUser, setLoginUser] = useState({});
+  const [disabled, setDisabled] = useState(false);
+  const [imageUrl, setImageUrl] = useState("");
 
   const [inputValue, setInputValue] = useState({
     firstName: "",
@@ -32,16 +25,11 @@ const App = () => {
     confirmPassword: "",
   });
 
+  const { firstName, lastName, email, password, confirmPassword } = inputValue;
+
   useEffect(() => {
     setInputValue(inputValue);
   }, [inputValue]);
-
-  const changeHandler = (e) => {
-    if (inputValue.email && inputValue.password !== "") {
-      setDisabled(!false);
-    }
-    setInputValue({ ...inputValue, [e.target.name]: e.target.value });
-  };
 
   useEffect(() => {
     const getUser = async () => {
@@ -50,65 +38,87 @@ const App = () => {
     getUser();
   }, []);
 
-  // const handleChange = (e) => {
-  //   e.target.name === "email"
-  //     ? setEmail(e.target.value)
-  //     : setPassword(e.target.value);
-  //   if (email && password !== "") {
-  //     setDisabled(!false);
-  //   }
-  // };
+  const handleClick = (page) => {
+    setPage(page);
+  };
+
+  const changeHandler = (e) => {
+    if (email !== "" && password !== "") {
+      setDisabled(!false);
+    }
+
+    if (e.target.name === "file") {
+      const IMG_PATH = e.target.value.split("\\").pop();
+      setImageUrl(IMG_PATH);
+    } else {
+      setInputValue({ ...inputValue, [e.target.name]: e.target.value });
+    }
+  };
 
   const submitLogin = (e) => {
     e.preventDefault();
     // to main page if successful
-
     const verifyUser = user
-      .filter((u) => u.email === inputValue.email)
-      .filter((u) => u.password === inputValue.password);
-    console.log(verifyUser);
+      .filter((u) => u.email === email)
+      .filter((u) => u.password === password);
 
     if (verifyUser.length !== 0) {
+      handleClick("main");
       history.push("/main");
-      handleClick();
       setLoginUser(verifyUser);
     } else {
       alert("Your email or password is not correct");
-      // setEmail("");
-      // setPassword("");
       setInputValue({ ...inputValue });
-      console.log(inputValue);
     }
   };
 
-  const submitSignup = (e)=>{
+  const submitSignup = (e) => {
     e.preventDefault();
-    if (inputValue.password === inputValue.confirmPassword) {
+
+    if (password !== "") {
       if (
-        inputValue.firstName &&
-        inputValue.lastName &&
-        inputValue.email !== ""
+        firstName &&
+        lastName &&
+        email !== "" &&
+        password === confirmPassword
       ) {
-        console.log("hi");
-        setUser({ ...user }, inputValue);
-        console.log(user);
+        newUser({
+          firstname: firstName,
+          lastname: lastName,
+          email,
+          password,
+          avatar: imageUrl,
+          balances: [
+            { balance: 0 },
+            { saving_balance: 0 },
+            { loan_balance: 0 },
+          ],
+          transactions: [],
+          savings: [],
+          loans: [],
+        });
+        handleClick("main");
+        history.push("/main");        
+      } else if (password !== confirmPassword) {
+        alert("Your password doesn't much");
       }
     }
-
-  }
-
-
+  };
 
   return (
     <div className="app">
-      <HeaderNav page={page} />
+      <HeaderNav page={page} handleClick={handleClick} />
 
       <Switch>
         <Route exact path="/main">
           <Main loginUser={loginUser} />
         </Route>
         <Route exact path="/signup">
-          <Signup changeHandler={changeHandler} submitSignup={submitSignup} />
+          <Signup
+            changeHandler={changeHandler}
+            submitSignup={submitSignup}
+            imageUrl={imageUrl}
+          />
         </Route>
         <Route exact path="/">
           <LoginForm
@@ -117,7 +127,6 @@ const App = () => {
             inputValue={inputValue}
             disabled={disabled}
           />
-          {/* <LoginForm handleClick={handleClick} /> */}
         </Route>
       </Switch>
     </div>

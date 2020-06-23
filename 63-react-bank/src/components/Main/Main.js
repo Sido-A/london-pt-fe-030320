@@ -1,18 +1,11 @@
-import React, { useState, useEffect } from "react";
-import { BrowserRouter as Router, Route, NavLink } from "react-router-dom";
-import fetchUser from "../../API"
+import React from "react";
+
 
 // Wallet
-const Main = ({loginUser}) => {
+const Main = ({ loginUser }) => {
   console.log(loginUser);
-  
-  
 
-  return (
-    <div className="wallet">
-      
-    </div>
-  );
+  return <div className="wallet"></div>;
 };
 
 export default Main;

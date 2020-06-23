@@ -1,0 +1,61 @@
+@mixin blackBackgroundColor {
+  background-color: #181a1b;
+}
+
+@mixin linearBackgroundColor {
+  background: linear-gradient(
+    200.71deg,
+    #3d4046 27.15%,
+    rgba(61, 64, 70, 0) 154.52%
+  );
+}
+
+@mixin darkOrangeColor {
+  color: #fd371f;
+}
+
+@mixin  darkOrangeBackground {
+    background-color: #fd371f;
+    
+}
+
+@mixin lightOrangeColor {
+  color: #f4613a;
+}
+
+@mixin darkGrayColor {
+  color: #3d4046;
+}
+
+@mixin lightGrayColor {
+  color: #61636a;
+}
+
+@mixin superLightGrayColor {
+  color: #858788;
+}
+
+@mixin darkWhiteColor {
+  color: #d9d2d1;
+}
+
+@mixin whiteColor {
+  color: #ffffff;
+}
+
+@mixin blackColor {
+  color: #181a1b;
+}
+
+@mixin greenColor {
+  color: #00c637;
+}
+
+@mixin blueColor {
+  color: #00bac6;
+}
+
+@mixin pinkColor {
+  color: #ff99af;
+}
+

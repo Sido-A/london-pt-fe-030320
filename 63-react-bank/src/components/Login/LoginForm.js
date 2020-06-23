@@ -2,55 +2,16 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 const LoginForm = ({ changeHandler,submitLogin, inputValue,disabled }) => {
-  // const history = useHistory();
-  // const [email, setEmail] = useState("");
-  // const [password, setPassword] = useState("");
-  // const [disabled, setDisabled] = useState(false);
-  // const [user, setUser] = useState([]);
-
-  // useEffect(() => {
-  //   const getUser = async () => {
-  //     return fetchUser().then((res) => setUser(res));
-  //   };
-  //   getUser();
-  // }, []);
-
-  // const handleChange = (e) => {
-  //   e.target.name === "email"
-  //     ? setEmail(e.target.value)
-  //     : setPassword(e.target.value);
-  //   if (email && password !== "") {
-  //     setDisabled(!false);
-  //   }
-  // };
-
-  // const submitLogin = (e) => {
-  //   e.preventDefault();
-  //   // to main page if successful
-  //   const loginUser = user
-  //     .filter((u) => u.email === email)
-  //     .filter((u) => u.password === password);
-  //     console.log(loginUser);
-
-  //   if (loginUser.length !== 0) {
-  //     history.push("/main");
-  //     handleClick();
-  //   } else {
-  //     alert("Your email or password is not correct");
-  //     setEmail("");
-  //     setPassword("");
-  //   }
-  // };
 
   return (
     <div className="login-main">
       {/*1*/}
-      <div className="title">
+      <div className="login-title">
         {/*2&3*/}
-        <h3>Login</h3>
+        <h1>Login</h1>
       </div>
       {/* <p className="error-message">Your email or password is not correct</p> */}
-      <form onSubmit={submitLogin}>
+      <form className="login-form" onSubmit={submitLogin}>
         {/*4*/}
         <label htmlFor="email">Email</label>
         <input
@@ -72,13 +33,13 @@ const LoginForm = ({ changeHandler,submitLogin, inputValue,disabled }) => {
           required
         />
         {/* <Link to="/Main"> */}
-        <button type="submit" disabled={!disabled}>
+        <button className="login-button" type="submit" disabled={!disabled}>
           Login
         </button>
         {/* </Link> */}
 
         {/* to sign up page */}
-        <Link to="/signup">Sign up</Link>
+        <Link to="/signup" className="sign-up-link">Sign up</Link>
       </form>
     </div>
   );
