@@ -6,7 +6,10 @@ import fetchUser, { newUser } from "./API";
 import HeaderNav from "./components/HeaderNav";
 import LoginForm from "./components/Login/LoginForm";
 import Signup from "./components/Signup/Signup";
-import Main from "./components/Main/Main";
+import Wallet from "./components/Main/Wallet";
+import Savings from "./components/Main/Savings"
+import Loans from "./components/Main/Loans";
+import Settings from "./components/Main/Settings";
 
 const App = () => {
   //set page
@@ -63,8 +66,8 @@ const App = () => {
       .filter((u) => u.password === password);
 
     if (verifyUser.length !== 0) {
-      handleClick("main");
-      history.push("/main");
+      handleClick("wallet");
+      history.push("/wallet");
       setLoginUser(verifyUser);
     } else {
       alert("Your email or password is not correct");
@@ -88,30 +91,43 @@ const App = () => {
           email,
           password,
           avatar: imageUrl,
-          balances: [
-            { balance: 0 },
-            { saving_balance: 0 },
-            { loan_balance: 0 },
-          ],
-          transactions: [],
-          savings: [],
-          loans: [],
+          wallet: [{ balance: 0 }, { transactions: [] }],
+          savings: [{ balance: 0 }, { transactions: [] }],
+          loans: [{ balance: 0 }, { transactions: [] }],
         });
-        handleClick("main");
-        history.push("/main");        
+        handleClick("wallet");
+        history.push("/wallet");        
       } else if (password !== confirmPassword) {
         alert("Your password doesn't much");
       }
     }
   };
 
+  const signOutHandler = ()=>{
+    setLoginUser({})
+    setInputValue({
+      firstName: "",
+      lastName: "",
+      email: "",
+      password: "",
+      confirmPassword: "",
+    });
+    handleClick("login")  
+  }
+
   return (
     <div className="app">
-      <HeaderNav page={page} handleClick={handleClick} />
+      <HeaderNav page={page} signOutHandler={signOutHandler} />
 
       <Switch>
-        <Route exact path="/main">
-          <Main loginUser={loginUser} />
+        <Route exact path="/loans">
+          <Loans loginUser={loginUser} />
+        </Route>
+        <Route exact path="/savings">
+          <Savings loginUser={loginUser} />
+        </Route>
+        <Route exact path="/wallet">
+          <Wallet loginUser={loginUser} />
         </Route>
         <Route exact path="/signup">
           <Signup
@@ -129,6 +145,7 @@ const App = () => {
           />
         </Route>
       </Switch>
+      <Settings />
     </div>
   );
 };

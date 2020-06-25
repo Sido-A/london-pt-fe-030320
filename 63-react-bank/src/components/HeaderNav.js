@@ -3,14 +3,14 @@ import { NavLink } from "react-router-dom";
 import logo from "../img/CH.svg"
 // import "../scss/App.scss"
 
-const HeaderNav = ({ page, handleClick }) => {
+const HeaderNav = ({ page, signOutHandler }) => {
   return (
     <div className="header-navs">
       <div className="logo">
         <img src={logo} />
       </div>
 
-      {page !== "main" ? (
+      {page !== "wallet" ? (
         <ul className="header-menu">
           <li>
             <NavLink activeClassName="active" to="/">
@@ -27,33 +27,31 @@ const HeaderNav = ({ page, handleClick }) => {
       ) : (
         <ul className="header-menu">
           <li>
-            <NavLink activeClassName="active" to="/Wallet">
+            <NavLink activeClassName="active" to="/wallet">
               Wallet
             </NavLink>
           </li>
           <li>
-            <NavLink activeClassName="active" to="/Savings">
+            <NavLink activeClassName="active" to="/savings">
               Savings
             </NavLink>
           </li>
           <li>
-            <NavLink activeClassName="active" to="/Loans">
+            <NavLink activeClassName="active" to="/loans">
               Loans
             </NavLink>
           </li>
           <li>
-            <NavLink activeClassName="active" to="/Settings">
+            <NavLink activeClassName="active" to="/settings">
               Settings
             </NavLink>
           </li>
           <li>
-            <NavLink activeClassName="active" to="/" 
-            onClick={()=>handleClick("login")}
-            >
+            <NavLink activeClassName="active" to="/" onClick={signOutHandler}>
               Sign out
             </NavLink>
           </li>
-        </ul> 
+        </ul>
       )}
     </div>
   );

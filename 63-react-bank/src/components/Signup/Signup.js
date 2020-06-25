@@ -78,9 +78,7 @@ const Signup = ({ changeHandler, submitSignup, imageUrl }) => {
         </div>
 
         <button className="sign-up-button">
-          {/* <Link className="sign-up-button-link" to="/main"> */}
             Sign up
-          {/* </Link> */}
         </button>
       </form>
     </div>

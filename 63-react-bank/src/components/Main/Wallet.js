@@ -1,22 +1,25 @@
 import React from "react";
 import Transactions from "../Main/transactions";
 
-const Savings = ({ loginUser }) => {
+// Wallet
+const Wallet = ({ loginUser }) => {
+  // console.log(loginUser);
   const mappedUser = loginUser.map((l) => {
-    return l.savings;
+    return l.wallet;
   });
+
   return (
-    <div className="savings">
-      <div className="savings-header">
+    <div className="wallet">
+      <div className="wallet-header">
         <div className="balance-header">
           {mappedUser.map((l) => (
             <p className="balance-amount">{l[0].balance}</p>
           ))}
           <p className="balance">Balance</p>
         </div>
-        <div className="pay-in-out-header">
-          <p>PAY IN</p>
-          <p>PAY OUT</p>
+        <div className="avatar-header">
+          <img alt="avatar" />
+          <p>date</p>
         </div>
       </div>
       <div className="transactions-wrapper">
@@ -30,4 +33,4 @@ const Savings = ({ loginUser }) => {
   );
 };
 
-export default Savings;
+export default Wallet;

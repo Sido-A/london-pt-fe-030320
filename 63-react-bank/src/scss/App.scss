@@ -199,4 +199,52 @@
       }
     }
   }
+
+  .wallet {
+    @include whiteColor;
+    .wallet-header {
+      @include linearBackgroundColor;
+      display: flex;
+      justify-content: space-between;
+      width: 560px;
+      border-radius: 7px;
+      padding: 0.5em 1.5em;
+      margin: 0 auto;
+      margin-top: 2.4em;
+      @include balanceCss(#f4613a);
+    }
+    @include wrapper;
+  }
+
+  .savings {
+    @include whiteColor;
+    .savings-header {
+      @include linearBackgroundColor;
+      display: flex;
+      justify-content: space-between;
+      width: 560px;
+      border-radius: 7px;
+      padding: 0.5em 1.5em;
+      margin: 0 auto;
+      margin-top: 2.4em;
+      @include balanceCss(#00C637);
+    }
+    @include wrapper;
+  }
+
+  .loans {
+    @include whiteColor;
+    .loans-header {
+      @include linearBackgroundColor;
+      display: flex;
+      justify-content: space-between;
+      width: 560px;
+      border-radius: 7px;
+      padding: 0.5em 1.5em;
+      margin: 0 auto;
+      margin-top: 2.4em;
+      @include balanceCss(#00BAC6);
+    }
+    @include wrapper;
+  }
 }

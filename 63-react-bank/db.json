@@ -7,81 +7,85 @@
       "email": "sido@email.com",
       "password": "sido",
       "avatar": "",
-      "balances": [
+      "wallet": [
+        { "balance": 1000.01 },
         {
-          "balance": 1000.01
-        },
-        {
-          "saving_balance": 9800.36
-        },
-        {
-          "loan_balance": -100
-        }
-      ],
-      "transactions": [
-        {
-          "transaction": "McDonald",
-          "debitcredit": "-",
-          "amount": 8.64
-        },
-        {
-          "transaction": "Lidl",
-          "debitcredit": "-",
-          "amount": 39.64
-        },
-        {
-          "transaction": "Bob",
-          "debitcredit": "+",
-          "amount": 10.64
-        },
-        {
-          "transaction": "Pharmacy",
-          "debitcredit": "-",
-          "amount": 11.64
+          "transactions": [
+            {
+              "transaction": "McDonald",
+              "debit": "-",
+              "amount": 8.64
+            },
+            {
+              "transaction": "Lidl",
+              "debit": "-",
+              "amount": 39.64
+            },
+            {
+              "transaction": "Bob",
+              "debit": "+",
+              "amount": 10.64
+            },
+            {
+              "transaction": "Pharmacy",
+              "debit": "-",
+              "amount": 11.64
+            }
+          ]
         }
       ],
       "savings": [
+        { "balance": 9800.58 },
         {
-          "transaction": "Direct deposit",
-          "debit": "+",
-          "amount": 400
-        },
-        {
-          "transaction": "Direct deposit",
-          "debit": "+",
-          "amount": 350
-        },
-        {
-          "transaction": "Rounded expense",
-          "debit": "+",
-          "amount": 0.73
-        },
-        {
-          "transaction": "Rounded expense",
-          "debit": "+",
-          "amount": 0.27
+          "transactions": [
+            {
+              "transaction": "Direct deposit",
+              "debit": "+",
+              "amount": 400
+            },
+            {
+              "transaction": "Direct deposit",
+              "debit": "+",
+              "amount": 350
+            },
+            {
+              "transaction": "Rounded expense",
+              "debit": "+",
+              "amount": 0.73
+            },
+            {
+              "transaction": "Rounded expense",
+              "debit": "+",
+              "amount": 0.27
+            }
+          ]
         }
       ],
       "loans": [
+        { "balance": -800.58 },
         {
-          "transaction": "Thanks for payment",
-          "debit": "+",
-          "amount": 400
-        },
-        {
-          "transaction": "Thanks for payment",
-          "debit": "+",
-          "amount": 350
-        },
-        {
-          "transaction": "Thanks for payment",
-          "debit": "+",
-          "amount": 100
-        },
-        {
-          "transaction": "Loan",
-          "debit": "-",
-          "amount": 2100
+          "transactions": [
+            {
+              "transaction": "Thanks for payment",
+              "debit": "+",
+              "amount": 400
+            },
+            {
+              "transaction": "Thanks for payment",
+              "debit": "+",
+              "amount": 350
+            },
+            {
+              "transaction": "Thanks for payment",
+              "debit": "+",
+              "amount": 100
+            },
+            {
+              "transaction": "Loan",
+              "debit": "-",
+              "amount": 2100
+            }
+          ]
         }
       ]
     },
@@ -92,42 +96,9 @@
       "email": "bob@email.com",
       "password": "bob",
       "avatar": "",
-      "balances": [
-        {
-          "balance": 0
-        },
-        {
-          "saving_balance": 0
-        },
-        {
-          "loan_balance": 0
-        }
-      ],
-      "transactions": [],
-      "savings": [],
-      "loans": []
-    },
-    {
-      "firstname": "Lucie",
-      "lastname": "Abe",
-      "email": "lucie@email.com",
-      "password": "lucie",
-      "avatar": "",
-      "balances": [
-        {
-          "balance": 0
-        },
-        {
-          "saving_balance": 0
-        },
-        {
-          "loan_balance": 0
-        }
-      ],
-      "transactions": [],
-      "savings": [],
-      "loans": [],
-      "id": 3
+      "wallet": [{ "balance": 0 }, { "transactions": [] }],
+      "savings": [{ "balance": 0 }, { "transactions": [] }],
+      "loans": [{ "balance": 0 }, { "transactions": [] }]
     }
   ]
 }

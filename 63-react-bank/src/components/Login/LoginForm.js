@@ -32,11 +32,9 @@ const LoginForm = ({ changeHandler,submitLogin, inputValue,disabled }) => {
           min="4"
           required
         />
-        {/* <Link to="/Main"> */}
         <button className="login-button" type="submit" disabled={!disabled}>
           Login
         </button>
-        {/* </Link> */}
 
         {/* to sign up page */}
         <Link to="/signup" className="sign-up-link">Sign up</Link>
